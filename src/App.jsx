@@ -4,8 +4,8 @@ import './Styles/marvel.scss';
 function App() {
   return (
     <div className="App">
-      <div className="Header">
-        <nav>
+      <div>
+        <nav className="Header">
         <img className="img-logo" src={marvelLogo} alt={"Marvel logo"}/>
           <ul className="navigation">
             <li><a href="/">Home</a></li>

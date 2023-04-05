@@ -3,6 +3,10 @@
 
 li {
     list-style-type: none;
+    
+    a {
+        text-decoration: none;
+    }
 }
 
 .navigation {
@@ -21,7 +25,17 @@ nav {
 
 .img {
     &-logo {
-        width: 100px;
+        width: 300px;
         height: 100px;
     }
 }
+
+.Header {
+    overflow: hidden;
+    background: linear-gradient(to right, red, rgb(5, 5, 36));
+}
+
+a {
+    color: white;
+}
+
