@@ -1,23 +1,27 @@
-import logo from "./logo.svg";
-import "./App.css";
+import marvelLogo from './Images/marvel.svg';
+import './Styles/marvel.scss';
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <div className="Header">
+        <nav>
+        <img className="img-logo" src={marvelLogo} alt={"Marvel logo"}/>
+          <ul className="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/characters">Characters</a></li>
+            <li><a href="/comics">Comics</a></li>
+            <li><a href="/about-us">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div className="Body">
+
+      </div>
+      <div id="img-scrollbar">
+      </div>
+      <div id="img-avengers">
+      </div>
     </div>
   );
 }
