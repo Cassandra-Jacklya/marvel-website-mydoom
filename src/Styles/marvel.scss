@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'defaults';
+
+li {
+    list-style-type: none;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content:space-around;
+    align-content: flex-end;
+    font-size: $nav-text;
+}
+
+nav {
+    display: inline-flex;
+    width: 100%;
+}
+
+.img {
+    &-logo {
+        width: 100px;
+        height: 100px;
+    }
+}
