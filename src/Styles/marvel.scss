@@ -85,6 +85,39 @@ nav {
   }
 }
 
+.character-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width:100%
+  }
+  
+  .character-card {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+
+  .character-card-pic {
+    border-radius: 10px;
+  }
+
+
+  .character-search {
+    display: flex;
+    justify-content: center;
+  
+    input[type="text"] {
+      width: 500px; 
+      padding: 10px;
+      border-radius: 20px; 
+      border: 1px solid gray;
+      text-align: center;
+      margin-bottom: 10px;
+      
+    }
+  }
+  
+
 .Header {
   overflow: hidden;
   max-height: fit-content;

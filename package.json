@@ -23,7 +23,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sass": "sass characterlist App.css",
+    "sass:watch": "sass characterlist App.css -w"
+
+
   },
   "eslintConfig": {
     "extends": [

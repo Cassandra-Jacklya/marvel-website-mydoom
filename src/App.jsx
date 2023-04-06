@@ -1,6 +1,7 @@
 import ImgScroll from './Components/ImgScroll';
 import NavBar from './Components/NavBar';
 import './Styles/marvel.scss';
+import CharacterList from './CharactersList';
 import Layout from './Commons/Layout';
 import AppWrapper from './Commons/AppWrapper';
 import { Routes, Route } from 'react-router-dom';
