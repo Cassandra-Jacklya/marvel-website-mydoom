@@ -4,12 +4,14 @@ import ReactDOM from "react-dom/client";
 import "./Styles/marvel.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import CharacterList from "./CharactersList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <HeroDetails />
+    {/* <HeroDetails /> */}
+    <CharacterList/>
   </React.StrictMode>
 );
 

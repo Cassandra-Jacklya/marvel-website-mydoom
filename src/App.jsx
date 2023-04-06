@@ -1,5 +1,6 @@
 import marvelLogo from './Images/marvel.svg';
 import './Styles/marvel.scss';
+import CharacterList from './CharactersList';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         </nav>
       </div>
       <div className="Body">
+
+       
 
       </div>
       <div id="img-scrollbar">
