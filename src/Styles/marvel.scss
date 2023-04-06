@@ -30,12 +30,14 @@ nav {
   &-img {
     display: flex;
     flex: auto;
+    position: relative;
     padding: 5px;
+    width: 100%;
     //max-width: 500px;
     padding-top: 250px;
-    img {
-      height: 1200px;
-      width: 1200px;
+    .image {
+      height: auto;
+      width: 100%;
       margin: 50px;
     }
   }
