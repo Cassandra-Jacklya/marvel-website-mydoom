@@ -1,28 +1,36 @@
-import marvelLogo from './Images/marvel.svg';
+import ImgScroll from './Components/ImgScroll';
+import NavBar from './Components/NavBar';
 import './Styles/marvel.scss';
+import Layout from './Commons/Layout';
+import AppWrapper from './Commons/AppWrapper';
+import { Routes, Route } from 'react-router-dom';
+import ComicsPage from './Pages/ComicsPage';
+import AboutPage from './Pages/AboutPage';
+import CharactersPage from './Pages/CharactersPage';
+
 
 function App() {
-  return (
-    <div className="App">
-      <div className="Header">
-        <nav>
-        <img className="img-logo" src={marvelLogo} alt={"Marvel logo"}/>
-          <ul className="navigation">
-            <li><a href="/">Home</a></li>
-            <li><a href="/characters">Characters</a></li>
-            <li><a href="/comics">Comics</a></li>
-            <li><a href="/about-us">About Us</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div className="Body">
 
-      </div>
-      <div id="img-scrollbar">
-      </div>
-      <div id="img-avengers">
-      </div>
-    </div>
+  return (
+    <AppWrapper>
+      <Layout>
+        <NavBar />
+        <div className="Body">
+          <Routes>
+            <Route path="/comics" element={<ComicsPage />}></Route>
+            <Route path="/about-us" element={<AboutPage />}></Route>
+            <Route path="/characters" element={
+            <CharactersPage>
+              <div className="container-styles">
+                <ImgScroll parentWidth={1200}/>
+              </div>
+            </CharactersPage>
+            }></Route>
+          </Routes>
+          <div id="img-avengers"></div>
+        </div>
+      </Layout>
+    </AppWrapper>
   );
 }
 
