@@ -1,17 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import './index.css';
 import "./Styles/marvel.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import CharacterList from "./CharactersList";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    {/* <HeroDetails /> */}
-    <CharacterList/>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
