@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./Styles/marvel.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import HeroDetails from "./HeroDetails";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
