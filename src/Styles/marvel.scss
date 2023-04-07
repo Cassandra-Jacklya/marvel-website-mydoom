@@ -630,7 +630,7 @@ a {
   color: black;
   margin-top: 20px;
   text-align: center;
-  padding: 103px;
+  padding: 102px;
 }
 
 .character-search {
@@ -655,7 +655,8 @@ a {
   align-items: center;
   width: 100%;
   overflow: hidden;
-  padding-top: 10px;
+  padding-top: 10px;  
+  
 }
 
 .character-card {
@@ -669,6 +670,7 @@ a {
   background-color: #a50000;
   border-radius: 10px;
   color: white;
+  // box-shadow: 1px 1px 8px yellow;
 
   .character-card-pic {
     border-radius: 10px;
@@ -737,9 +739,9 @@ a {
 
   .load-btn {
     padding: 10px 20px;
-    margin: 0 10px;
+    margin: 10px 10px;
     border: solid 1px grey;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #ffffff;
     color: #333333;
     font-size: 16px;
