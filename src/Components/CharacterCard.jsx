@@ -32,13 +32,11 @@
 
 // export default CharacterCard;
 
-
 //search
 
 // import React, { useState, useEffect } from "react";
 // import SearchCharacter from "./SearchCharacter";
 // import FilterCharacter from "./FilterCharacter";
-
 
 // function CharacterCard() {
 //     //to store the characters
@@ -75,7 +73,7 @@
 //       <SearchCharacter onSearchTermChange={handleSearchTermChange} />
 //       <div>
 //                 <FilterCharacter/>
-//             </div>    
+//             </div>
 //       {characterNotFound ? (
 //         <div className="character-not-found">Character not found</div>
 //       ) : (
@@ -98,12 +96,9 @@
 
 // export default CharacterCard;
 
-
-
 // import React, { useState, useEffect } from "react";
 // import SearchCharacter from "../SearchCharacter";
 // import FilterCharacter from "../FilterCharacter";
-
 
 // function CharacterCard() {
 //     //to store the characters
@@ -140,7 +135,7 @@
 //       <SearchCharacter onSearchTermChange={handleSearchTermChange} />
 //       <div>
 //                 <FilterCharacter/>
-//             </div>    
+//             </div>
 //       {characterNotFound ? (
 //         <div className="character-not-found">Character not found</div>
 //       ) : (
@@ -162,8 +157,6 @@
 // }
 
 // export default CharacterCard;
-   
-   
 
 import React, { useState, useEffect } from "react";
 import SearchCharacter from "../SearchCharacter";
@@ -178,7 +171,7 @@ function CharacterCard() {
   const [characterNotFound, setCharacterNotFound] = useState(false);
   //additional state for filtering
   const [, setFilterType] = useState("All");
-  
+
   useEffect(() => {
     fetch(
       "https://gateway.marvel.com/v1/public/characters?offset=0&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f"
@@ -189,14 +182,13 @@ function CharacterCard() {
         setFilteredCharacters(data.data.results);
       })
       .catch((error) => console.error(error));
-  }, []);   
-
+  }, []);
 
   //function to handle filtering
   const handleFilterChange = (filter) => {
     //set filterType state based on button click
     setFilterType(filter);
-    
+
     switch (filter) {
       case "All":
         setFilteredCharacters(characters);
@@ -250,26 +242,12 @@ function CharacterCard() {
         </div>
       )}
 
-      <button className="load-btn" >Load More</button>
+      <button className="load-btn">Load More</button>
     </div>
   );
 }
 
 export default CharacterCard;
 
-
-
-
-
-
-
-
-
-
-
-
 // with new hash
 // https://gateway.marvel.com/v1/public/characters?ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f
-
-
-
