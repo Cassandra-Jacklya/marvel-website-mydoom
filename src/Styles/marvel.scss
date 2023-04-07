@@ -30,7 +30,7 @@ nav {
 .hero {
   &-details {
     display: flex;
-    align-items: center;
+    //align-items: center;
     justify-content: center;
     flex-direction: row;
   }
@@ -42,11 +42,14 @@ nav {
     padding: 5px;
     width: 100%;
     //max-width: 500px;
-    padding-top: 250px;
+    //padding-top: 250px;
+    &:hover .overlay-bookmark {
+      opacity: 0.7;
+    }
     .image {
       height: auto;
       width: 100%;
-      margin: 50px;
+      //margin: 50px;
     }
   }
 
@@ -62,7 +65,7 @@ nav {
       align-items: center;
       flex-direction: row;
       margin: 0;
-      font-size: 100px;
+      font-size: 20px;
       // padding-left: 100px;
     }
 
@@ -72,156 +75,177 @@ nav {
       flex-direction: row;
       align-items: center;
       justify-items: center;
-      font-size: 35px;
+      font-size: 15px;
       font-weight: 300;
     }
   }
 }
+.overlay-bookmark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.3s ease;
+  background-color: white;
+}
 
+.icon {
+  color: #eee;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  // left: 50%;
+  right: 5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  &:hover {
+    color: red;
+  }
+}
 .img {
   &-logo {
     width: 300px;
     height: 100px;
   }
 }
-.content{
-    width: 80%;
-    margin: 3rem auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    grid-gap:1rem
+.content {
+  width: 80%;
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
 }
-.card{
-    background-color: #B41F23;
-    color: white;
-    position: relative;
-    margin-top: 3rem;
-    padding: 1.5px;
+.card {
+  background-color: #b41f23;
+  color: white;
+  position: relative;
+  margin-top: 3rem;
+  padding: 1.5px;
 }
-p{
-    color:white;
-    text-align: center;
-    font-size: 25px;
+p {
+  color: white;
+  text-align: center;
+  font-size: 25px;
 }
-.card img{
-    width: 100%;
-    height: 75%;
-    transition: 0.5s;
+.card img {
+  width: 100%;
+  height: 75%;
+  transition: 0.5s;
 }
-.card:hover img{
-    transform: scale(1.1);
+.card:hover img {
+  transform: scale(1.1);
 }
-.card .title{
-    text-align: center;
-    padding: 1rem;
-    font-size: 17px;
+.card .title {
+  text-align: center;
+  padding: 1rem;
+  font-size: 17px;
 }
 .card::after,
-.card::before{
-    content: '';
-    position: absolute;
-    background: #B41F23;
-    z-index: -1;
+.card::before {
+  content: "";
+  position: absolute;
+  background: #b41f23;
+  z-index: -1;
 }
-.card::before{
-    bottom: -2em;
-    left: 0;
-    width: 75%;
-    height: 3em;
+.card::before {
+  bottom: -2em;
+  left: 0;
+  width: 75%;
+  height: 3em;
 }
-.card::after{
-    bottom: -2em;
-    right: 0.9em;
-    width: 41%;
-    height: 5em;
-    transform: rotate(-38deg);
-    box-sizing: 1rem;
+.card::after {
+  bottom: -2em;
+  right: 0.9em;
+  width: 41%;
+  height: 5em;
+  transform: rotate(-38deg);
+  box-sizing: 1rem;
 }
-.box-content{
-    width: 100%;
-    margin: 0  auto;
-    height: 600px;
-    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7));
-    color: white;
-    font-size: 1.3rem;
-    text-align: justify;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.box-content {
+  width: 100%;
+  margin: 0 auto;
+  height: 600px;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7));
+  color: white;
+  font-size: 1.3rem;
+  text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.right-box{
-    flex-basis: 20%;
+.right-box {
+  flex-basis: 20%;
 }
-.left-box{
-    flex-basis: 50%;
+.left-box {
+  flex-basis: 50%;
 }
-.box-content img{
-    width: 300px;
-    height: 400px;
-    border:1px solid white;
-    box-shadow: 0 5px 5px 5px rgba(255,255,255,0.2);
-    transform: rotate(20deg);
-    transition: 0.5s;
+.box-content img {
+  width: 300px;
+  height: 400px;
+  border: 1px solid white;
+  box-shadow: 0 5px 5px 5px rgba(255, 255, 255, 0.2);
+  transform: rotate(20deg);
+  transition: 0.5s;
 }
-.box-content img:hover{
-    transform: rotate(0deg);
+.box-content img:hover {
+  transform: rotate(0deg);
 }
 
-.comic{
-    display:flex;
-    
-    flex-direction: column;
+.comic {
+  display: flex;
 
+  flex-direction: column;
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-  
-  }
-  
-  .grid-item {
-     text-align: center;
-    margin:10px;
-  }
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
 
-  .search-comic{
-    justify-content: center;
-    width:80%;
-  }
+.grid-item {
+  text-align: center;
+  margin: 10px;
+}
+
+.search-comic {
+  justify-content: center;
+  width: 80%;
+}
 
 .character-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width:100%
-  }
-  
-  .character-card {
-    width: 30%;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
 
-  .character-card-pic {
-    border-radius: 10px;
-  }
+.character-card {
+  width: 30%;
+  margin-bottom: 20px;
+}
 
+.character-card-pic {
+  border-radius: 10px;
+}
 
-  .character-search {
-    display: flex;
-    justify-content: center;
-  
-    input[type="text"] {
-      width: 500px; 
-      padding: 10px;
-      border-radius: 20px; 
-      border: 1px solid gray;
-      text-align: center;
-      margin-bottom: 10px;
-      
-    }
+.character-search {
+  display: flex;
+  justify-content: center;
+
+  input[type="text"] {
+    width: 500px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    text-align: center;
+    margin-bottom: 10px;
   }
-  
+}
 
 .Header {
   overflow: hidden;
@@ -300,4 +324,49 @@ a {
   width: 1200px;
   height: 350px;
   margin: 0 auto;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 50%;
+  height: 40%;
+  padding: 7px;
+  border-radius: 1.5rem;
+}
+// .popup-arrow {
+//   color: rgb(255, 255, 255);
+// }
+
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal {
+  font-size: 12px;
 }
