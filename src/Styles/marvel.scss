@@ -7,7 +7,8 @@ body {
   padding: 0;
   font-size: 1.6rem;
   background: transparent;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 li {
@@ -489,16 +490,20 @@ a {
   bottom: 1rem;
 }
 
-// .App {
-//   background-color: red;
-// }
+.bg {
+    background-image: url('../Images/background-red-blue.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .Box {
   padding: 70px 10px;
   background: black;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: auto;
 }
 
 .FootContainer {
@@ -520,8 +525,9 @@ a {
 
 .Row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-  grid-gap: 20px;
+  //changed from 185px to 250px
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 50px;
 
   @media (max-width: 1000px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -578,6 +584,94 @@ a {
   }
 }
 
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none;
+}
+
+.slider-controller {
+  position: relative;
+  bottom: 2rem;
+}
+
+.slider-controller .swiper-button-next {
+  left: 58% !important;
+  transform: translateX(-58%) !important;
+}
+
+@media (max-width: 990px) {
+  .slider-controller .swiper-button-next {
+    left: 70% !important;
+    transform: translateX(-70%) !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .slider-controller .swiper-button-next {
+    left: 80% !important;
+    transform: translateX(-80%) !important;
+  }
+}
+
+@media (max-width: 990px) {
+  .slider-controller .swiper-button-prev {
+    left: 30% !important;
+    transform: translateX(-30%) !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .slider-controller .swiper-button-prev {
+    left: 20% !important;
+    transform: translateX(-20%) !important;
+  }
+}
+
+
+
+//pavi
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+
+  .filter-btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: solid 1px grey;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 300px;
+
+    &:hover {
+      background-color: grey;
+      color: #ffffff;
+      border: solid 1px blue;
+    }
+
+    &.active {
+      background-color: black;
+      color: blue;
+      border: solid 1px blue;
+    }
+  }
+}
+
+.character-not-found {
+  font-size: 24px;
+  color: black;
+  margin-top: 20px;
+  text-align: center;
+  padding: 102px;
+}
+
 .character-search {
   display: flex;
   justify-content: center;
@@ -600,7 +694,8 @@ a {
   align-items: center;
   width: 100%;
   overflow: hidden;
-  padding-top: 10px;
+  padding-top: 10px;  
+  
 }
 
 .character-card {
@@ -614,6 +709,7 @@ a {
   background-color: #a50000;
   border-radius: 10px;
   color: white;
+  // box-shadow: 1px 1px 8px yellow;
 
   .character-card-pic {
     border-radius: 10px;
@@ -669,41 +765,30 @@ a {
   }
 }
 
-.swiper-slide-shadow-left,
-.swiper-slide-shadow-right {
-  display: none;
+
+.character-card{
+  font-size: 15px;
 }
 
-.slider-controller {
-  position: relative;
-  bottom: 2rem;
-}
 
-.slider-controller .swiper-button-next {
-  left: 58% !important;
-  transform: translateX(-58%) !important;
-}
+.load-more{
 
-@media (max-width: 990px) {
-  .slider-controller .swiper-button-next {
-    left: 70% !important;
-    transform: translateX(-70%) !important;
+  display: flex;
+  justify-content: center;
+
+  .load-btn {
+    padding: 10px 20px;
+    margin: 10px 10px;
+    border: solid 1px grey;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 300px;
   }
-}
-
-@media (max-width: 450px) {
-  .slider-controller .swiper-button-next {
-    left: 80% !important;
-    transform: translateX(-80%) !important;
-  }
-}
-
-@media (max-width: 990px) {
-  .slider-controller .swiper-button-prev {
-    left: 30% !important;
-    transform: translateX(-30%) !important;
-  }
-}
 
 @media (max-width: 450px) {
   .slider-controller .swiper-button-prev {
