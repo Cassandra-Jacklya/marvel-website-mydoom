@@ -5,28 +5,26 @@ import SearchComics from './Components/SearchComics.js';
 
 const Comics=()=>{
     const [comic,setComic]=useState([])
-
+    
+    const[filterComics,setFilterComic]=useState('')
 
 
 
     const getComics = async () => {
       const comic = await fetch(
         `https://gateway.marvel.com/v1/public/comics?&ts=1&apikey=f335d5599e262281d1cdfd7c9f0a94f5&hash=c74ecbf3bf21ea45e948725a46aab33f`
-      ).then((res) => res.json())
+      ).then((res) => res.json()   )
       .then(comic => {
+        // console.log(comic);
         setComic(comic.data.results);
-       
+        setFilterComic(comic.data.results)   
     });
+  
   
         
     };
     
-  
-    // get getTopAnime() as the site render useEffect is used
-    useEffect(() => {
-      getComics();
-    }, []);
-
+   
 
     return (
       <div> 

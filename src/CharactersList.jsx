@@ -1,5 +1,4 @@
 import React from 'react'
-import CharacterCard from './CharacterCard';
 
 
 
@@ -9,7 +8,7 @@ function CharacterList(){
         <div>
             <h1>Characters</h1>  
                
-            <CharacterCard/>
+     
 
            
         </div>

@@ -26,8 +26,6 @@
     "eject": "react-scripts eject",
     "sass": "sass characterlist App.css",
     "sass:watch": "sass characterlist App.css -w"
-
-
   },
   "eslintConfig": {
     "extends": [

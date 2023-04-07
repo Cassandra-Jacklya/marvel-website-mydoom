@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
+const SearchComics=({searchComics, setSearchComics})=>{
 
-const SearchComics=()=>{
-    const [searchComics,setSearchComics]=useState("")
 
     const handleChange = (e) => {
         e.preventDefault();
+        console.log(e.target.value);
         setSearchComics(e.target.value);
       };
       
@@ -14,7 +13,8 @@ return(
    type="text"
    placeholder="Search Comic here"
    onChange={handleChange}
-   value={searchComics} />
+   value={searchComics} 
+   />
 </div>
 )
 
