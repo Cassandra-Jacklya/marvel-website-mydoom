@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-//import hulk from "./Images/imgbin-hulk-L9NMbmufEtNV6JjTcX5rRPpvg-removebg-preview.png";
+import ReactStars from "react-rating-stars-component";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { render } from "react-dom";
+import { Rating } from "@mui/material";
 
 const HeroDetails = () => {
   const [url, setUrl] = useState(
@@ -38,6 +40,7 @@ const HeroDetails = () => {
                 key={item.id}
                 className="image"
               />
+
               <div className="overlay-bookmark">
                 <FontAwesomeIcon
                   icon={faBookmark}
@@ -56,6 +59,9 @@ const HeroDetails = () => {
                 <h3 className="hero-information-description" key={item.id}>
                   {item.description}
                 </h3>
+                <div className="rating">
+                  <Rating name="simple-controlled" />
+                </div>
               </div>
             </div>
           </div>
