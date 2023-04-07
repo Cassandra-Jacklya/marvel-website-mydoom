@@ -121,5 +121,4 @@ function CharacterCard() {
     </div>
   );
 }
-
 export default CharacterCard;
