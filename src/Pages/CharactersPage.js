@@ -1,12 +1,13 @@
 import React from "react";
-import CharactersCard from "../CharacterCard";
 import Popup from "reactjs-popup";
+import CharacterCard from "../Components/CharacterCard";
+import NavBar from "../Components/NavBar";
 
 const CharactersPage = ({ children }) => {
   return (
     <div className="Characters">
       {children}
-      <CharactersCard />
+      <CharacterCard />
     </div>
   );
 };

@@ -7,14 +7,17 @@ import { Routes, Route } from "react-router-dom";
 import ComicsPage from "./Pages/ComicsPage";
 import AboutPage from "./Pages/AboutPage";
 import CharactersPage from "./Pages/CharactersPage";
+import Avengers from "./Components/Avengers";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
     <AppWrapper>
       <Layout>
         <NavBar />
-        <div className="Body">
+        <div>
           <Routes>
+            <Route exact path="/" element={<Avengers />}></Route>
             <Route path="/comics" element={<ComicsPage />}></Route>
             <Route path="/about-us" element={<AboutPage />}></Route>
             <Route
@@ -28,8 +31,8 @@ function App() {
               }
             ></Route>
           </Routes>
-          <div id="img-avengers"></div>
         </div>
+        <Footer />
       </Layout>
     </AppWrapper>
   );
