@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function FilterCharacter({ onFilterChange }) {
   return (
     <div className="filter-container">
@@ -21,65 +20,3 @@ function FilterCharacter({ onFilterChange }) {
 }
 
 export default FilterCharacter;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
