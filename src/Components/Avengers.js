@@ -5,7 +5,6 @@ import hulk from '../Images/Transparent/hulk.png';
 import ironman from '../Images/Transparent/ironman.png';
 import thor from '../Images/Transparent/thor2.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
