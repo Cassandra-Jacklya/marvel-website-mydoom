@@ -13,10 +13,16 @@ function CharacterCard() {
   const [characterNotFound, setCharacterNotFound] = useState(false);
   //additional state for filtering
   const [, setFilterType] = useState("All");
+  //setting visibility to limit character showing
+  const [visible,setVisible] = useState(50);
+
+  const loadMore = () => {
+    setVisible(visible + 20);
+  }
 
   useEffect(() => {
     fetch(
-      "https://gateway.marvel.com/v1/public/characters?offset=0&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f"
+      "https://gateway.marvel.com/v1/public/characters?offset=0&limit=200&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -53,6 +59,8 @@ function CharacterCard() {
     }
   };
 
+ 
+
   const handleSearchTermChange = (searchTerm) => {
     const filtered = characters.filter((character) =>
       character.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -74,9 +82,9 @@ function CharacterCard() {
         <Popup
           trigger={
             <div className="character-container">
-              {filteredCharacters.map((character) => (
+              {filteredCharacters.slice(0,visible).map((character) => (
                 <div className="character-card" key={character.id}>
-                  <h2>{character.name}</h2>
+                  <h2 className="character-name">{character.name}</h2>
                   {/* potrait_uncanny is the size of pic to be shown */}
                   <img
                     className="character-card-pic"
@@ -85,6 +93,7 @@ function CharacterCard() {
                   />
                 </div>
               ))}
+              
             </div>
           }
           modal
@@ -102,8 +111,22 @@ function CharacterCard() {
               <div className="actions"></div>
             </div>
           )}
-        </Popup>
-        // <div className="character-container">
+          </Popup>      
+        )}
+
+<div className="load-more"><button className="load-btn" onClick={loadMore}>Load More</button></div>
+      
+
+      
+    </div>
+  );
+}
+
+export default CharacterCard;
+
+
+
+// <div className="character-container">
         //   {filteredCharacters.map((character) => (
         //     <div className="character-card" key={character.id}>
         //       <img
@@ -116,12 +139,4 @@ function CharacterCard() {
         //     </div>
         //   ))}
         // </div>
-      )}
-
-      <button className="load-btn">Load More</button>
-    </div>
-  );
-}
-
-export default CharacterCard;
 
