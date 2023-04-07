@@ -9,6 +9,7 @@ import AboutPage from "./Pages/AboutPage";
 import CharactersPage from "./Pages/CharactersPage";
 import Avengers from "./Components/Avengers";
 import Footer from "./Components/Footer";
+import ErrorPage from "./Pages/ErrorPage";
 
 function App() {
   return (
@@ -38,8 +39,8 @@ function App() {
                   </div>
                 </CharactersPage>
               }
-            >
-            </Route>
+            ></Route>
+            <Route path='*' element={<ErrorPage />}/>
           </Routes>
         </div>
       </Layout>
