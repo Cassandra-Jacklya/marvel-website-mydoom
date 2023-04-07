@@ -121,22 +121,4 @@ function CharacterCard() {
     </div>
   );
 }
-
 export default CharacterCard;
-
-
-
-// <div className="character-container">
-        //   {filteredCharacters.map((character) => (
-        //     <div className="character-card" key={character.id}>
-        //       <img
-        //         className="character-card-pic"
-        //         src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
-        //         alt={character.name}
-        //       />
-              
-        //       <h2 className="character-card-name">{character.name}</h2>
-        //     </div>
-        //   ))}
-        // </div>
-

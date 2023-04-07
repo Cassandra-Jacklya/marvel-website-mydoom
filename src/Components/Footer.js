@@ -2,7 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="Box">
+    <>
+    <div className="Box" style={{position: 'relative'}}>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
+          <p style={{ color: "white", textAlign: "center", fontFamily: "cursive", fontSize: "x-small", position: 'absolute', bottom: '0', width: '100%'}}>
+            MyD00M Marvel Entertainment
+          </p>
+      </div>
       <div className="FootContainer">
         <div className="Row">
           <div className="Column">
@@ -34,18 +40,11 @@ const Footer = () => {
                 <span style={{ marginLeft: "10px" }}>Twitter</span>
               </i>
             </a>
-            {/* <a className="FooterLink" href="#">
-              <i className="fab fa-youtube">
-                <span style={{ marginLeft: "10px" }}>Youtube</span>
-              </i>
-            </a> */}
           </div>
         </div>
       </div>
-      <p style={{ color: "white", textAlign: "center",  fontFamily: "cursive", fontSize: "x-small", marginTop: "30px"}}>
-        MyD00M Marvel Entertainment
-      </p>
     </div>
+    </>
   );
 };
 export default Footer;
