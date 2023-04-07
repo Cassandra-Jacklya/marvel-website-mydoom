@@ -3,7 +3,9 @@ import React from 'react';
 const AppWrapper = ( {children} ) => {
     return (
         <div className='App'>
-            {children}
+            <div className='bg'>
+                {children}
+            </div>
         </div>
     );
 }

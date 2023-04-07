@@ -7,7 +7,7 @@ body {
   padding: 0;
   font-size: 1.6rem;
   background: transparent;
-  overflow: auto;
+  overflow-x: auto;
 }
 
 li {
@@ -492,9 +492,14 @@ a {
   bottom: 1rem;
 }
 
-// .App {
-//   background-color: red;
-// }
+//changed from .App to .bg
+.bg {
+    background-image: url('../Images/background-red-blue.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .Box {
   padding: 70px 10px;
@@ -523,8 +528,9 @@ a {
 
 .Row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-  grid-gap: 20px;
+  //changed from 185px to 250px
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 50px;
 
   @media (max-width: 1000px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
