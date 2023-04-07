@@ -6,22 +6,26 @@ function FilterCharacter({characters}) {
   const popular = characters.filter((character) => character.comics.available >= 25);
 
 
-   return { lessPopular, popular }(
-     <div className="filter-container">
-
-      <button>All</button>  
-      <button>Popular</button>
-      <button>Less Popular</button>
-
+function FilterCharacter({ onFilterChange }) {
+  return (
+    <div className="filter-container">
+      <button className="filter-btn" onClick={() => onFilterChange("All")}>
+        All
+      </button>
+      <button className="filter-btn" onClick={() => onFilterChange("Popular")}>
+        Popular
+      </button>
+      <button
+        className="filter-btn"
+        onClick={() => onFilterChange("Less Popular")}
+      >
+        Less Popular
+      </button>
     </div>
+  );
+}
 
-   );
-  }
-
-
-
-export default FilterCharacter; 
-
+export default FilterCharacter;
 
 
 

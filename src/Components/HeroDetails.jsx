@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import hulk from "./Images/imgbin-hulk-L9NMbmufEtNV6JjTcX5rRPpvg-removebg-preview.png";
+//import hulk from "./Images/imgbin-hulk-L9NMbmufEtNV6JjTcX5rRPpvg-removebg-preview.png";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
@@ -18,6 +18,11 @@ const HeroDetails = () => {
     fetch();
   }, [url]);
 
+  const [bookmarkSelect, setBookmarkSelect] = useState(false);
+  const bookmarkHandler = () => {
+    setBookmarkSelect(!bookmarkSelect);
+    document.getElementsByClassName("icon");
+  };
   return (
     <>
       {/* ISSUE: Uncaught TypeError: Cannot read properties of undefined (reading 'map'): RESOLVED */}
@@ -34,7 +39,12 @@ const HeroDetails = () => {
                 className="image"
               />
               <div className="overlay-bookmark">
-                <FontAwesomeIcon icon={faBookmark} />
+                <FontAwesomeIcon
+                  icon={faBookmark}
+                  className="icon"
+                  onClick={bookmarkHandler}
+                  style={{ color: bookmarkSelect ? "red" : "#eee" }}
+                />
               </div>
             </div>
 
