@@ -1,27 +1,9 @@
 import React from "react";
 
-// function FilterCharacter({characters}) {
-//   //filter the one with less comics than 25
-//   // const lessPopular = characters.filter((character) => character.comics.available < 25);
-//   // const popular = characters.filter((character) => character.comics.available >= 25);
-
-
-//    return (
-//      <div className="filter-container">
-
-//       <button className="filter-btn">All</button>  
-//       <button className="filter-btn">Popular</button>
-//       <button className="filter-btn">Less Popular</button>
-
-//     </div>
-
-//    );
-//   }
-
-
-
-// export default FilterCharacter; 
-
+function FilterCharacter({characters}) {
+  //filter the one with less comics than 25
+  const lessPopular = characters.filter((character) => character.comics.available < 25);
+  const popular = characters.filter((character) => character.comics.available >= 25);
 
 
 function FilterCharacter({ onFilterChange }) {
