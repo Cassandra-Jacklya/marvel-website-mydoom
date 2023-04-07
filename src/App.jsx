@@ -32,7 +32,7 @@ function App() {
             ></Route>
           </Routes>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </Layout>
     </AppWrapper>
   );

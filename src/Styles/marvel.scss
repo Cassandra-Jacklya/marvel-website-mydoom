@@ -5,6 +5,9 @@
 body {
   margin: 0;
   padding: 0;
+  font-size: 1.6rem;
+  background: transparent;
+  overflow: auto;
 }
 
 li {
@@ -465,111 +468,7 @@ a {
   }
 }
 
-.character-search {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
 
-  input[type="text"] {
-    width: 70%;
-    height: 40px;
-    padding: 10px;
-    border-radius: 30px;
-    border: 1px solid gray;
-    text-align: center;
-  }
-}
-
-.filter-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px;
-
-  .filter-btn {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: solid 1px grey;
-    border-radius: 20px;
-    background-color: #ffffff;
-    color: #333333;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 300px;
-
-    &:hover {
-      background-color: grey;
-      color: #ffffff;
-      border: solid 1px blue;
-    }
-
-    &.active {
-      background-color: black;
-      color: blue;
-      border: solid 1px blue;
-    }
-  }
-}
-
-.character-not-found {
-  font-size: 24px;
-  color: red;
-  margin-top: 20px;
-  text-align: center;
-}
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  10% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  20% {
-    transform: translateX(4x) rotate(1deg);
-  }
-  30% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  40% {
-    transform: translateX(4px) rotate(1deg);
-  }
-  50% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  60% {
-    transform: translateX(4px) rotate(1deg);
-  }
-  70% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  80% {
-    transform: translateX(4px) rotate(1deg);
-  }
-  90% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.character-search {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-
-  input[type="text"] {
-    width: 70%;
-    height: 40px;
-    padding: 10px;
-    border-radius: 30px;
-    border: 1px solid gray;
-    text-align: center;
-  }
-}
 
 // @media only screen and (min-width: 1440px) {
 //   html: {
@@ -607,11 +506,7 @@ a {
   background: #f9f9f9;
 }
 
-body {
-  font-size: 1.6rem;
-  background: transparent;
-  overflow: hidden;
-}
+
 
 .container {
   max-width: 50rem;
@@ -834,12 +729,6 @@ body {
   background: #f9f9f9;
 }
 
-body {
-  font-size: 1.6rem;
-  background: transparent;
-  overflow: hidden;
-}
-
 .container {
   max-width: 50rem;
   padding: 0rem 1rem;
@@ -1025,81 +914,9 @@ body {
   font-weight: bold;
 }
 
-filter-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px;
 
-  .filter-btn {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: solid 1px grey;
-    border-radius: 20px;
-    background-color: #ffffff;
-    color: #333333;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 300px;
 
-    &:hover {
-      background-color: grey;
-      color: #ffffff;
-      border: solid 1px blue;
-    }
 
-    &.active {
-      background-color: black;
-      color: blue;
-      border: solid 1px blue;
-    }
-  }
-}
-
-.character-not-found {
-  font-size: 24px;
-  color: red;
-  margin-top: 20px;
-  text-align: center;
-}
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  10% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  20% {
-    transform: translateX(4x) rotate(1deg);
-  }
-  30% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  40% {
-    transform: translateX(4px) rotate(1deg);
-  }
-  50% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  60% {
-    transform: translateX(4px) rotate(1deg);
-  }
-  70% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  80% {
-    transform: translateX(4px) rotate(1deg);
-  }
-  90% {
-    transform: translateX(-4px) rotate(-1deg);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 
 .character-search {
   display: flex;
@@ -1232,20 +1049,7 @@ filter-container {
   }
 }
 
-.character-search {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
 
-  input[type="text"] {
-    width: 70%;
-    height: 40px;
-    padding: 10px;
-    border-radius: 30px;
-    border: 1px solid gray;
-    text-align: center;
-  }
-}
 
 // @media only screen and (min-width: 1440px) {
 //   html: {
@@ -1281,12 +1085,6 @@ filter-container {
 
 ::-webkit-scrollbar-track {
   background: #f9f9f9;
-}
-
-body {
-  font-size: 1.6rem;
-  background: transparent;
-  overflow: hidden;
 }
 
 .container {
@@ -1508,12 +1306,6 @@ body {
 
 ::-webkit-scrollbar-track {
   background: #f9f9f9;
-}
-
-body {
-  font-size: 1.6rem;
-  background: transparent;
-  overflow: hidden;
 }
 
 .container {
