@@ -382,7 +382,7 @@ a {
 
 .character-not-found {
   font-size: 24px;
-  color: red;
+  color: black;
   margin-top: 20px;
   text-align: center;
 }
@@ -811,10 +811,6 @@ a {
   --bg: #f5f5f5;
 }
 
-.App {
-  background-color: red;
-}
-
 .Box {
   padding: 70px 10px;
   background: black;
@@ -921,12 +917,7 @@ a {
   }
 }
 
-.character-not-found {
-  font-size: 24px;
-  color: red;
-  margin-top: 20px;
-  text-align: center;
-}
+
 
 .character-container {
   display: flex;
@@ -1169,10 +1160,6 @@ a {
   --bg: #f5f5f5;
 }
 
-.App {
-  background-color: red;
-}
-
 .Box {
   padding: 70px 10px;
   background: black;
@@ -1388,10 +1375,6 @@ a {
   --primary: #6a59ff;
   --white: #ffffff;
   --bg: #f5f5f5;
-}
-
-.App {
-  background-color: red;
 }
 
 .Box {
