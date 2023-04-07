@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function FilterCharacter({ onFilterChange }) {
   return (
     <div className="filter-container">

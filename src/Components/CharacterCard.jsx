@@ -5,16 +5,24 @@ import Popup from "reactjs-popup";
 import HeroDetails from "./HeroDetails";
 
 function CharacterCard() {
-    //to store the characters
+  //to store the characters
   const [characters, setCharacters] = useState([]);
   //to store filtered characters
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   //we are setting to false because it is assumed as found
   const [characterNotFound, setCharacterNotFound] = useState(false);
+  //additional state for filtering
+  const [, setFilterType] = useState("All");
+  //setting visibility to limit character showing
+  const [visible,setVisible] = useState(50);
+
+  const loadMore = () => {
+    setVisible(visible + 20);
+  }
 
   useEffect(() => {
     fetch(
-      "https://gateway.marvel.com/v1/public/characters?ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f"
+      "https://gateway.marvel.com/v1/public/characters?offset=0&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -24,13 +32,40 @@ function CharacterCard() {
       .catch((error) => console.error(error));
   }, []);
 
+  //function to handle filtering
+  const handleFilterChange = (filter) => {
+    //set filterType state based on button click
+    setFilterType(filter);
+
+    switch (filter) {
+      case "All":
+        setFilteredCharacters(characters);
+        break;
+      case "Popular":
+        const popularCharacters = characters.filter(
+          (character) => character.comics.available >= 25
+        );
+        setFilteredCharacters(popularCharacters);
+        break;
+      case "Less Popular":
+        const lessPopularCharacters = characters.filter(
+          (character) => character.comics.available < 25
+        );
+        setFilteredCharacters(lessPopularCharacters);
+        break;
+      default:
+        setFilteredCharacters(characters);
+        break;
+    }
+  };
+
+ 
+
   const handleSearchTermChange = (searchTerm) => {
     const filtered = characters.filter((character) =>
-    //needs to be changed to lowercase so it can match correctly
       character.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredCharacters(filtered);
-    //if the length in filtered array is 0, it means that character does not exist
     setCharacterNotFound(filtered.length === 0);
   };
 
@@ -38,8 +73,8 @@ function CharacterCard() {
     <div>
       <SearchCharacter onSearchTermChange={handleSearchTermChange} />
       <div>
-                <FilterCharacter/>
-            </div>    
+        <FilterCharacter onFilterChange={handleFilterChange} />
+      </div>
       {characterNotFound ? (
         <div className="character-not-found">Character not found</div>
       ) : (
@@ -47,9 +82,9 @@ function CharacterCard() {
         <Popup
           trigger={
             <div className="character-container">
-              {filteredCharacters.map((character) => (
+              {filteredCharacters.slice(0,visible).map((character) => (
                 <div className="character-card" key={character.id}>
-                  <h2>{character.name}</h2>
+                  <h2 className="character-name">{character.name}</h2>
                   {/* potrait_uncanny is the size of pic to be shown */}
                   <img
                     className="character-card-pic"
@@ -58,6 +93,7 @@ function CharacterCard() {
                   />
                 </div>
               ))}
+              
             </div>
           }
           modal
@@ -75,36 +111,15 @@ function CharacterCard() {
               <div className="actions"></div>
             </div>
           )}
-        </Popup>
-        // <div className="character-container">
-        //   {filteredCharacters.map((character) => (
-        //     <div className="character-card" key={character.id}>
-        //       <img
-        //         className="character-card-pic"
-        //         src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
-        //         alt={character.name}
-        //       />
-              
-        //       <h2 className="character-card-name">{character.name}</h2>
-        //     </div>
-        //   ))}
-        // </div>
-      )}
+          </Popup>      
+        )}
+
+<div className="load-more"><button className="load-btn" onClick={loadMore}>Load More</button></div>
+      
+
+      
     </div>
   );
 }
 
 export default CharacterCard;
-   
-   
-
-
-
-
-
-
-
-
-
-
-
