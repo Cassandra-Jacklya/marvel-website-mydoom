@@ -23,14 +23,14 @@ function App() {
                 <Footer />
               </div>
             }></Route>
-            <Route path="/comics" element={<ComicsPage />}></Route>
-            <Route path="/about-us" element={
+            <Route path="comics" element={<ComicsPage />}></Route>
+            <Route path="about-us" element={
             <div>
               <AboutPage />
               <Footer />
             </div>}></Route>
             <Route
-              path="/characters"
+              path="characters"
               element={
                 <CharactersPage>
                   <div className="container-styles">
@@ -38,7 +38,8 @@ function App() {
                   </div>
                 </CharactersPage>
               }
-            ></Route>
+            >
+            </Route>
           </Routes>
         </div>
       </Layout>
