@@ -38,7 +38,7 @@ function Avengers() {
           modules={[EffectCoverflow, Pagination, Navigation]}
           className="swiper_container"
         >
-          {avengers.map((a) => 
+          {avengers.map((a, key) => 
             <SwiperSlide>
               <img src={a} alt="slide_image" 
               style={{width: '800px', height: '100%',
