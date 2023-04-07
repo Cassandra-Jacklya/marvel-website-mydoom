@@ -12,7 +12,7 @@ const Card = ({ title,description,image_src}) => {
         </div>
         <div> 
       <h2>{title}</h2>
-      <button>Click here</button>
+     
       </div>
       
 

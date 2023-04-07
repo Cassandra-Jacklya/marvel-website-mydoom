@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
 //accepts search as input(props)
-function SearchCharacter(search) {
+const SearchCharacter = (search) => {
+  console.log(search, 'search')
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (event) => {
+    console.log('onchange')
     setSearchTerm(event.target.value);
     search.onSearchTermChange(event.target.value);
   };
@@ -13,6 +15,8 @@ function SearchCharacter(search) {
     <div className="character-search">
       <input
         type="text"
+        id="search"
+        test
         placeholder="Search characters"
         value={searchTerm}
         onChange={handleInputChange}

@@ -12,7 +12,7 @@ const HeroDetails = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(url);
-      console.log(response.data.data.results);
+      // console.log(response.data.data.results);
       setHeroItem(response.data.data.results);
     };
     fetch();
