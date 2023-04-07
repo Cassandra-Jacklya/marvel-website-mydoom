@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SearchCharacter from "../SearchCharacter";
 import FilterCharacter from "../FilterCharacter";
+import Popup from "reactjs-popup";
+import HeroDetails from "./HeroDetails";
 
 function CharacterCard() {
   //to store the characters
@@ -68,18 +70,52 @@ function CharacterCard() {
       {characterNotFound ? (
         <div className="character-not-found">Character not found</div>
       ) : (
-        <div className="character-container">
-          {filteredCharacters.map((character) => (
-            <div className="character-card" key={character.id}>
-              <img
-                className="character-card-pic"
-                src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
-                alt={character.name}
-              />
-              <h2 className="character-card-name">{character.name}</h2>
+
+        <Popup
+          trigger={
+            <div className="character-container">
+              {filteredCharacters.map((character) => (
+                <div className="character-card" key={character.id}>
+                  <h2>{character.name}</h2>
+                  {/* potrait_uncanny is the size of pic to be shown */}
+                  <img
+                    className="character-card-pic"
+                    src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
+                    alt={character.name}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          }
+          modal
+          nested
+        >
+          {(close) => (
+            <div className="modal">
+              <button className="close" onClick={close}>
+                &times;
+              </button>
+              {/* <div className="header"> Modal Title </div> */}
+              <div className="content">
+                <HeroDetails />
+              </div>
+              <div className="actions"></div>
+            </div>
+          )}
+        </Popup>
+        // <div className="character-container">
+        //   {filteredCharacters.map((character) => (
+        //     <div className="character-card" key={character.id}>
+        //       <img
+        //         className="character-card-pic"
+        //         src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
+        //         alt={character.name}
+        //       />
+              
+        //       <h2 className="character-card-name">{character.name}</h2>
+        //     </div>
+        //   ))}
+        // </div>
       )}
 
       <button className="load-btn">Load More</button>
