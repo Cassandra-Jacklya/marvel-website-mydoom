@@ -347,51 +347,6 @@ a {
   font-size: 12px;
 }
 
-.popup-overlay {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.popup-content {
-  margin: auto;
-  background: rgb(255, 255, 255);
-  width: 50%;
-  height: 40%;
-  padding: 7px;
-  border-radius: 1.5rem;
-}
-// .popup-arrow {
-//   color: rgb(255, 255, 255);
-// }
-
-.modal > .close {
-  cursor: pointer;
-  position: absolute;
-  display: block;
-  padding: 2px 5px;
-  line-height: 20px;
-  right: -10px;
-  top: -10px;
-  font-size: 24px;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #cfcece;
-}
-
-.modal > .actions {
-  width: 100%;
-  padding: 10px 5px;
-  margin: auto;
-  text-align: center;
-}
-
-.modal > .content {
-  width: 100%;
-  padding: 10px 5px;
-}
-.modal {
-  font-size: 12px;
-}
-
 .filter-container {
   display: flex;
   justify-content: center;
