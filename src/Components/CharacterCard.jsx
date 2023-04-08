@@ -111,8 +111,7 @@ function CharacterCard() {
                 </div>
               ))}
             </div>
-          ))}
-        </div>} modal nested>
+        } modal nested>
           {(close) => (
             <div className="modal">
               <button className="close" onClick={close}>
@@ -128,17 +127,11 @@ function CharacterCard() {
           )}
           
           </Popup>  
+      )}
               
 
-    <div className="load-more">
-      {visible < 1000 && <button className="load-btn " onClick={loadMore}>Load More</button>}
-    </div>
-      
-
       <div className="load-more">
-        <button className="load-btn" onClick={loadMore}>
-          Load More
-        </button>
+        {visible < 1000 && <button className="load-btn " onClick={loadMore}>Load More</button>}
       </div>
     </div>
   );
