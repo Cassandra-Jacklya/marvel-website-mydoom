@@ -17,18 +17,26 @@ function App() {
         <NavBar />
         <div>
           <Routes>
-            <Route exact path="/" element={
-              <div>
-                <Avengers />
-                <Footer />
-              </div>
-            }></Route>
+            <Route
+              exact
+              path="/"
+              element={
+                <div>
+                  <Avengers />
+                  <Footer />
+                </div>
+              }
+            ></Route>
             <Route path="/comics" element={<ComicsPage />}></Route>
-            <Route path="/about-us" element={
-            <div>
-              <AboutPage />
-              <Footer />
-            </div>}></Route>
+            <Route
+              path="/about-us"
+              element={
+                <div>
+                  <AboutPage />
+                  <Footer />
+                </div>
+              }
+            ></Route>
             <Route
               path="/characters"
               element={
