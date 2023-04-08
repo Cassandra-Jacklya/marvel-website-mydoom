@@ -3,6 +3,7 @@ import SearchCharacter from "../SearchCharacter";
 import FilterCharacter from "../FilterCharacter";
 import Popup from "reactjs-popup";
 import HeroDetails from "./HeroDetails";
+import { useNavigate } from "react-router-dom";
 
 function CharacterCard() {
   //to store the characters
@@ -15,11 +16,14 @@ function CharacterCard() {
   const [, setFilterType] = useState("All");
   //setting visibility to limit character showing
   const [visible, setVisible] = useState(50);
+  //to store selected character ID
+  const [charID, setCharID] = useState({});
 
   const loadMore = () => {
     setVisible(visible + 20);
   };
 
+  //let navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       let allCharacters = [];
@@ -75,7 +79,9 @@ function CharacterCard() {
     setFilteredCharacters(filtered);
     setCharacterNotFound(filtered.length === 0);
   };
-
+  // const handleCharID = () => {
+  //   setCharID;
+  // };
   return (
     <div>
       <SearchCharacter onSearchTermChange={handleSearchTermChange} />
@@ -85,17 +91,25 @@ function CharacterCard() {
       {characterNotFound ? (
         <div className="character-not-found">Character not found</div>
       ) : (
-        <Popup trigger={<div className="character-container">
-          
-          {filteredCharacters.slice(0, visible).map((character) => (
-            <div className="character-card" key={character.id}>
-              <h2 className="character-name">{character.name}</h2>
-              {/* potrait_uncanny is the size of pic to be shown */}
-              <img
-                className="character-card-pic"
-                src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
-                alt={character.name}
-              />
+        <Popup
+          trigger={
+            <div className="character-container">
+              {filteredCharacters.slice(0, visible).map((character) => (
+                <div
+                  className="character-card"
+                  key={character.id}
+                  // created an onClick which will set the character id using setCharID(character.id)
+                  onClick={() => setCharID(character.id)}
+                >
+                  <h2 className="character-name">{character.name}</h2>
+                  {/* potrait_uncanny is the size of pic to be shown */}
+                  <img
+                    className="character-card-pic"
+                    src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
+                    alt={character.name}
+                  />
+                </div>
+              ))}
             </div>
           ))}
         </div>} modal nested>
@@ -106,7 +120,8 @@ function CharacterCard() {
               </button>
               {/* <div className="header"> Modal Title </div> */}
               <div className="content">
-                <HeroDetails />
+                {/* pass the charID which has the character.id using prop characterID */}
+                <HeroDetails characterID={charID} />
               </div>
               <div className="actions"></div>
             </div>
@@ -114,22 +129,18 @@ function CharacterCard() {
           
           </Popup>  
               
-        )}
-        
 
     <div className="load-more">
       {visible < 1000 && <button className="load-btn " onClick={loadMore}>Load More</button>}
     </div>
       
 
-      
+      <div className="load-more">
+        <button className="load-btn" onClick={loadMore}>
+          Load More
+        </button>
+      </div>
     </div>
   );
 }
 export default CharacterCard;
-
-
-
-
-
-

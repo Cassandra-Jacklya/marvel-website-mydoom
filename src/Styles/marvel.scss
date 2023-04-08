@@ -2,10 +2,12 @@
 @import "variables";
 @import "defaults";
 
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
-  font-size: 1.6rem;
   background: transparent;
   overflow-x: hidden;
   overflow-y: auto;
@@ -33,7 +35,7 @@ nav {
   display: inline-flex;
   width: 100%;
 }
-
+// Deilan
 .hero {
   &-details {
     display: flex;
@@ -51,11 +53,13 @@ nav {
     //max-width: 500px;
     //padding-top: 250px;
     &:hover .overlay-bookmark {
-      opacity: 0.7;
+      opacity: 0.8;
     }
     .image {
       height: auto;
       width: 100%;
+      max-height: 300px;
+      max-width: 350px;
       //margin: 50px;
     }
   }
@@ -302,7 +306,7 @@ a {
   height: 350px;
   margin: 0 auto;
 }
-
+//Deilan
 .popup-overlay {
   background: rgba(0, 0, 0, 0.5);
 }
@@ -391,7 +395,7 @@ a {
 }
 
 // @media only screen and (min-width: 1440px) {
-//   html: {
+//   html {
 //     zoom: 1.5;
 //   }
 // }
@@ -493,6 +497,7 @@ a {
 .bg {
     background-image: url('../Images/background-red-blue.jpg');
     height: 100%;
+    padding: 0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -501,9 +506,24 @@ a {
 .Box {
   padding: 70px 10px;
   background: black;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: auto;
+
+  &-div-el {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-p-el {
+    color: white;
+    text-align: center;
+    font-family: cursive;
+    font-size: small;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
 .FootContainer {
@@ -584,6 +604,10 @@ a {
   }
 }
 
+.social-media-icons {
+  margin-left: 10px;
+}
+
 .swiper-slide-shadow-left,
 .swiper-slide-shadow-right {
   display: none;
@@ -626,8 +650,6 @@ a {
     transform: translateX(-20%) !important;
   }
 }
-
-
 
 //pavi
 
@@ -714,8 +736,7 @@ a {
   align-items: center;
   width: 100%;
   overflow: hidden;
-  padding-top: 10px;  
-  
+  padding-top: 10px;
 }
 
 .character-card {
@@ -799,9 +820,11 @@ a {
   }
 }
 
+.character-card {
+  font-size: 15px;
+}
 
 .load-more{
-
   display: flex;
   justify-content: center;
 
@@ -830,12 +853,44 @@ a {
     width: 300px;
   }
 
-  //pavi ends here
-
-  @media (max-width: 450px) {
+@media (max-width: 450px) {
     .slider-controller .swiper-button-prev {
       left: 20% !important;
       transform: translateX(-20%) !important;
     }
   }
+}
+
+.error-page {
+    background: linear-gradient(to bottom, red, black);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+
+  &-img {
+    height: 100vh;
+    padding-left: 150px;
+
+    &:hover {
+      transform: scale(1.05);
+      animation: ease-in-out;
+    }
   }
+}
+
+
+h1 {
+  margin: 10px;
+  color: gray;
+  font-size: 40px;
+  position:relative;
+  align-items: center;
+  align-content: center;
+  display: flex;
+
+  &:hover {
+    color: white;
+  }
+}
