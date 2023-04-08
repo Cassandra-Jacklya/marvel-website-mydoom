@@ -9,6 +9,7 @@ import AboutPage from "./Pages/AboutPage";
 import CharactersPage from "./Pages/CharactersPage";
 import Avengers from "./Components/Avengers";
 import Footer from "./Components/Footer";
+import ErrorPage from "./Pages/ErrorPage";
 
 function App() {
   return (
@@ -17,28 +18,20 @@ function App() {
         <NavBar />
         <div>
           <Routes>
+            <Route exact path="/" element={
+              <div>
+                <Avengers />
+                <Footer />
+              </div>
+            }></Route>
+            <Route path="comics" element={<ComicsPage />}></Route>
+            <Route path="about-us" element={
+            <div>
+              <AboutPage />
+              <Footer />
+            </div>}></Route>
             <Route
-              exact
-              path="/"
-              element={
-                <div>
-                  <Avengers />
-                  <Footer />
-                </div>
-              }
-            ></Route>
-            <Route path="/comics" element={<ComicsPage />}></Route>
-            <Route
-              path="/about-us"
-              element={
-                <div>
-                  <AboutPage />
-                  <Footer />
-                </div>
-              }
-            ></Route>
-            <Route
-              path="/characters"
+              path="characters"
               element={
                 <CharactersPage>
                   <div className="container-styles">
@@ -47,6 +40,7 @@ function App() {
                 </CharactersPage>
               }
             ></Route>
+            <Route path='*' element={<ErrorPage />}/>
           </Routes>
         </div>
       </Layout>

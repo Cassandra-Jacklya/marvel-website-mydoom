@@ -2,10 +2,12 @@
 @import "variables";
 @import "defaults";
 
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
-  font-size: 1.6rem;
   background: transparent;
   overflow-x: hidden;
   overflow-y: auto;
@@ -51,7 +53,7 @@ nav {
     //max-width: 500px;
     //padding-top: 250px;
     &:hover .overlay-bookmark {
-      opacity: 0.7;
+      opacity: 0.8;
     }
     .image {
       height: auto;
@@ -393,7 +395,7 @@ a {
 }
 
 // @media only screen and (min-width: 1440px) {
-//   html: {
+//   html {
 //     zoom: 1.5;
 //   }
 // }
@@ -493,19 +495,35 @@ a {
 }
 
 .bg {
-  background-image: url("../Images/background-red-blue.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-image: url('../Images/background-red-blue.jpg');
+    height: 100%;
+    padding: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .Box {
   padding: 70px 10px;
   background: black;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: auto;
+
+  &-div-el {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-p-el {
+    color: white;
+    text-align: center;
+    font-family: cursive;
+    font-size: small;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
 .FootContainer {
@@ -584,6 +602,10 @@ a {
     color: green;
     transition: 200ms ease-in;
   }
+}
+
+.social-media-icons {
+  margin-left: 10px;
 }
 
 .swiper-slide-shadow-left,
@@ -768,7 +790,7 @@ a {
   font-size: 15px;
 }
 
-.load-more {
+.load-more{
   display: flex;
   justify-content: center;
 
@@ -786,10 +808,44 @@ a {
     width: 300px;
   }
 
-  @media (max-width: 450px) {
+@media (max-width: 450px) {
     .slider-controller .swiper-button-prev {
       left: 20% !important;
       transform: translateX(-20%) !important;
     }
+  }
+}
+
+.error-page {
+    background: linear-gradient(to bottom, red, black);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+
+  &-img {
+    height: 100vh;
+    padding-left: 150px;
+
+    &:hover {
+      transform: scale(1.05);
+      animation: ease-in-out;
+    }
+  }
+}
+
+
+h1 {
+  margin: 10px;
+  color: gray;
+  font-size: 40px;
+  position:relative;
+  align-items: center;
+  align-content: center;
+  display: flex;
+
+  &:hover {
+    color: white;
   }
 }

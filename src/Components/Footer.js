@@ -3,10 +3,10 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-    <div className="Box" style={{position: 'relative'}}>
-      <div style={{display: 'flex', flexDirection: 'column'}}>
-          <p style={{ color: "white", textAlign: "center", fontFamily: "cursive", fontSize: "x-small", position: 'absolute', bottom: '0', width: '100%'}}>
-            MyD00M Marvel Entertainment
+    <div className="Box">
+      <div className="Box-div-el">
+          <p className="Box-p-el">
+            © MyD00M Marvel Entertainment
           </p>
       </div>
       <div className="FootContainer">
@@ -27,17 +27,17 @@ const Footer = () => {
             <div className="FootHeading">Social Media</div>
             <a className="FooterLink" href="#">
               <i className="fab fa-facebook-f">
-                <span style={{ marginLeft: "10px" }}>Facebook</span>
+                <span className="social-media-icons">Facebook</span>
               </i>
             </a>
             <a className="FooterLink" href="#">
               <i className="fab fa-instagram">
-                <span style={{ marginLeft: "10px" }}>Instagram</span>
+                <span className="social-media-icons">Instagram</span>
               </i>
             </a>
             <a className="FooterLink" href="#">
               <i className="fab fa-twitter">
-                <span style={{ marginLeft: "10px" }}>Twitter</span>
+                <span className="social-media-icons">Twitter</span>
               </i>
             </a>
           </div>
