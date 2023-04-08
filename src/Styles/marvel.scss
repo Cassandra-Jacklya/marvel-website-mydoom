@@ -35,7 +35,7 @@ nav {
   display: inline-flex;
   width: 100%;
 }
-
+// Deilan
 .hero {
   &-details {
     display: flex;
@@ -58,7 +58,9 @@ nav {
     .image {
       height: auto;
       width: 100%;
-      margin: 50px;
+      max-height: 300px;
+      max-width: 350px;
+      //margin: 50px;
     }
   }
 
@@ -304,7 +306,7 @@ a {
   height: 350px;
   margin: 0 auto;
 }
-
+//Deilan
 .popup-overlay {
   background: rgba(0, 0, 0, 0.5);
 }
@@ -649,6 +651,8 @@ a {
   }
 }
 
+//pavi
+
 .filter-container {
   display: flex;
   justify-content: center;
@@ -712,8 +716,7 @@ a {
   align-items: center;
   width: 100%;
   overflow: hidden;
-  padding-top: 10px;  
-  
+  padding-top: 10px;
 }
 
 .character-card {
@@ -783,15 +786,11 @@ a {
   }
 }
 
-
-.character-card{
+.character-card {
   font-size: 15px;
 }
 
-
 .load-more{
-
-
   display: flex;
   justify-content: center;
 

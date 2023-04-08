@@ -3,6 +3,7 @@ import SearchCharacter from "../SearchCharacter";
 import FilterCharacter from "../FilterCharacter";
 import Popup from "reactjs-popup";
 import HeroDetails from "./HeroDetails";
+import { useNavigate } from "react-router-dom";
 
 function CharacterCard() {
   //to store the characters
@@ -14,12 +15,15 @@ function CharacterCard() {
   //additional state for filtering
   const [, setFilterType] = useState("All");
   //setting visibility to limit character showing
-  const [visible,setVisible] = useState(50);
+  const [visible, setVisible] = useState(50);
+  //to store selected character ID
+  const [charID, setCharID] = useState({});
 
   const loadMore = () => {
     setVisible(visible + 20);
-  }
+  };
 
+  //let navigate = useNavigate();
   useEffect(() => {
     fetch(
       "https://gateway.marvel.com/v1/public/characters?offset=0&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f"
@@ -59,8 +63,6 @@ function CharacterCard() {
     }
   };
 
- 
-
   const handleSearchTermChange = (searchTerm) => {
     const filtered = characters.filter((character) =>
       character.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -68,7 +70,9 @@ function CharacterCard() {
     setFilteredCharacters(filtered);
     setCharacterNotFound(filtered.length === 0);
   };
-
+  // const handleCharID = () => {
+  //   setCharID;
+  // };
   return (
     <div>
       <SearchCharacter onSearchTermChange={handleSearchTermChange} />
@@ -78,12 +82,16 @@ function CharacterCard() {
       {characterNotFound ? (
         <div className="character-not-found">Character not found</div>
       ) : (
-
         <Popup
           trigger={
             <div className="character-container">
-              {filteredCharacters.slice(0,visible).map((character) => (
-                <div className="character-card" key={character.id}>
+              {filteredCharacters.slice(0, visible).map((character) => (
+                <div
+                  className="character-card"
+                  key={character.id}
+                  // created an onClick which will set the character id using setCharID(character.id)
+                  onClick={() => setCharID(character.id)}
+                >
                   <h2 className="character-name">{character.name}</h2>
                   {/* potrait_uncanny is the size of pic to be shown */}
                   <img
@@ -93,7 +101,6 @@ function CharacterCard() {
                   />
                 </div>
               ))}
-              
             </div>
           }
           modal
@@ -106,18 +113,20 @@ function CharacterCard() {
               </button>
               {/* <div className="header"> Modal Title </div> */}
               <div className="content">
-                <HeroDetails />
+                {/* pass the charID which has the character.id using prop characterID */}
+                <HeroDetails characterID={charID} />
               </div>
               <div className="actions"></div>
             </div>
           )}
-          </Popup>      
-        )}
+        </Popup>
+      )}
 
-<div className="load-more"><button className="load-btn" onClick={loadMore}>Load More</button></div>
-      
-
-      
+      <div className="load-more">
+        <button className="load-btn" onClick={loadMore}>
+          Load More
+        </button>
+      </div>
     </div>
   );
 }
