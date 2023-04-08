@@ -25,15 +25,24 @@ function CharacterCard() {
 
   //let navigate = useNavigate();
   useEffect(() => {
-    fetch(
-      "https://gateway.marvel.com/v1/public/characters?offset=0&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setCharacters(data.data.results);
-        setFilteredCharacters(data.data.results);
-      })
-      .catch((error) => console.error(error));
+    const fetchData = async () => {
+      let allCharacters = [];
+      let offset = 0;
+
+      while (offset < 2000) {
+        const response = await fetch(
+          `https://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f`
+        );
+        const data = await response.json();
+        allCharacters = [...allCharacters, ...data.data.results];
+        offset += 100;
+      }
+
+      setCharacters(allCharacters);
+      setFilteredCharacters(allCharacters);
+    };
+
+    fetchData().catch((error) => console.error(error));
   }, []);
 
   //function to handle filtering
@@ -102,10 +111,8 @@ function CharacterCard() {
                 </div>
               ))}
             </div>
-          }
-          modal
-          nested
-        >
+          ))}
+        </div>} modal nested>
           {(close) => (
             <div className="modal">
               <button className="close" onClick={close}>
@@ -119,8 +126,14 @@ function CharacterCard() {
               <div className="actions"></div>
             </div>
           )}
-        </Popup>
-      )}
+          
+          </Popup>  
+              
+
+    <div className="load-more">
+      {visible < 1000 && <button className="load-btn " onClick={loadMore}>Load More</button>}
+    </div>
+      
 
       <div className="load-more">
         <button className="load-btn" onClick={loadMore}>

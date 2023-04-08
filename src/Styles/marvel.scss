@@ -672,6 +672,11 @@ a {
     transition: all 0.3s ease;
     width: 300px;
 
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      margin: 10px 0;
+    }
+
     &:hover {
       background-color: grey;
       color: #ffffff;
@@ -692,12 +697,27 @@ a {
   margin-top: 20px;
   text-align: center;
   padding: 102px;
+
+  @media screen and (max-width: 768px) {
+    padding: 50px;
+  }
 }
 
 .character-search {
   display: flex;
   justify-content: center;
   margin-top: 100px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+
+    input[type="text"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+  }
 
   input[type="text"] {
     width: 70%;
@@ -730,7 +750,20 @@ a {
   background-color: #a50000;
   border-radius: 10px;
   color: white;
-  // box-shadow: 1px 1px 8px yellow;
+  font-size: 11px;
+
+  @media screen and (max-width: 1024px) {
+    width: 23%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 48%;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
+  
 
   .character-card-pic {
     border-radius: 10px;
@@ -748,6 +781,7 @@ a {
 .character-card:hover {
   transform: rotate(2deg) translateX(5px);
   animation: shake 0.5s infinite;
+  box-shadow: 0px 0px 10px 5px rgba(165,0,0,0.75);
 }
 
 @keyframes shake {
@@ -793,6 +827,17 @@ a {
 .load-more{
   display: flex;
   justify-content: center;
+
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+
+    .load-btn {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
 
   .load-btn {
     padding: 10px 20px;
