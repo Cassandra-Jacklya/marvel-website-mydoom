@@ -39,7 +39,7 @@ function Avengers() {
           className="swiper_container"
         >
           {avengers.map((a, key) => 
-            <SwiperSlide>
+            <SwiperSlide key={key}>
               <img src={a} alt="slide_image" className='avengers-overlay-text' />
               <div className="middle">
                 <div className="overlay-text-opacity">Swipe? Click?</div>
