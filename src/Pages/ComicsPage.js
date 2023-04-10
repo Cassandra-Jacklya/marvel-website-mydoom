@@ -135,7 +135,6 @@ const ComicsPage = ( {children} ) => {
              {/* <h1>{item.title}</h1>
              <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} width={500} height={800} key={item.id}/> */}
              <Card title={item.title} image_src={`${item.thumbnail.path}.${item.thumbnail.extension}`}/>
-             <button onClick={()=>changecontent(item) } >Click here</button>
                
               </div>
                )})}
