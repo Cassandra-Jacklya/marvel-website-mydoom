@@ -10,7 +10,6 @@ import CharactersPage from "./Pages/CharactersPage";
 import Avengers from "./Components/Homepage/Avengers";
 import Footer from "./Components/Footer";
 import ErrorPage from "./Pages/ErrorPage";
-import RoutingFooter from "./Components/RoutingFooter";
 
 function App() {
   return (
