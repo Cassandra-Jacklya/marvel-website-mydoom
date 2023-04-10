@@ -683,11 +683,6 @@ a {
     transition: all 0.3s ease;
     width: 300px;
 
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      margin: 10px 0;
-    }
-
     &:hover {
       background-color: grey;
       color: #ffffff;
@@ -699,8 +694,66 @@ a {
       color: blue;
       border: solid 1px blue;
     }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: 480px) {
+      flex-basis: 50%;
+    }
+    
+    @media screen and (max-width: 320px) {
+      flex-basis: 100%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 }
+
+
+
+.marvel-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: +1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.marvel-video video {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.marvel-video .marvel-text {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-family: 'MarvelRegular', 'serif';
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 1px 1px #000;
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  opacity: 0.8; 
+  padding: 8px; 
+  background-color: rgba(0,0,0,0.5); 
+  border-radius: 4px; 
+}
+
+
 
 .character-not-found {
   font-size: 24px;
@@ -748,6 +801,9 @@ a {
   width: 100%;
   overflow: hidden;
   padding-top: 10px;
+  transition: all 0.5s ease-in-out;
+
+
 }
 
 .character-card {
@@ -755,14 +811,15 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
   border: solid black 5px;
   margin-bottom: 20px;
   background-color: #a50000;
   border-radius: 10px;
   color: white;
   font-size: 11px;
-
+ 
+  
   @media screen and (max-width: 1024px) {
     width: 23%;
   }
@@ -777,15 +834,24 @@ a {
   
 
   .character-card-pic {
+    width: 80%;
+    height: 80%;
     border-radius: 10px;
-    margin-top: 10px;
+    
   }
+  
 
   .character-name {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    width: 80;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+    
   }
 }
 
@@ -831,9 +897,6 @@ a {
   }
 }
 
-.character-card {
-  font-size: 15px;
-}
 
 .load-more{
   display: flex;
@@ -871,6 +934,11 @@ a {
     }
   }
 }
+
+
+
+
+
 
 .error-page {
     background: linear-gradient(to bottom, red, black);

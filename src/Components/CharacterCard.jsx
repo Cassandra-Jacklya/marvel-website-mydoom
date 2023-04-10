@@ -3,7 +3,8 @@ import SearchCharacter from "../SearchCharacter";
 import FilterCharacter from "../FilterCharacter";
 import Popup from "reactjs-popup";
 import HeroDetails from "./HeroDetails";
-import { useNavigate } from "react-router-dom";
+import video from "../marvel.mp4";
+
 
 function CharacterCard() {
   //to store the characters
@@ -18,18 +19,22 @@ function CharacterCard() {
   const [visible, setVisible] = useState(50);
   //to store selected character ID
   const [charID, setCharID] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [filtering, setFiltering] = useState(false);
+
+ 
 
   const loadMore = () => {
     setVisible(visible + 20);
   };
 
-  //let navigate = useNavigate();
+  
   useEffect(() => {
     const fetchData = async () => {
       let allCharacters = [];
       let offset = 0;
 
-      while (offset < 2000) {
+      while (offset < 1000) {
         const response = await fetch(
           `https://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f`
         );
@@ -40,6 +45,7 @@ function CharacterCard() {
 
       setCharacters(allCharacters);
       setFilteredCharacters(allCharacters);
+      setLoading(false);
     };
 
     fetchData().catch((error) => console.error(error));
@@ -49,6 +55,7 @@ function CharacterCard() {
   const handleFilterChange = (filter) => {
     //set filterType state based on button click
     setFilterType(filter);
+    setFiltering(true);
 
     switch (filter) {
       case "All":
@@ -84,6 +91,17 @@ function CharacterCard() {
   // };
   return (
     <div>
+      {loading ? (
+      <div className="marvel-video">        
+      <video autoPlay loop muted>
+      <source src={video} type="video/mp4" />
+      </video> 
+      <div className="marvel-text">
+    Sorry Marvelites, Strange is having some technical issues with his portal
+  </div>
+      </div>   ) : (
+      <div>        
+   
       <SearchCharacter onSearchTermChange={handleSearchTermChange} />
       <div>
         <FilterCharacter onFilterChange={handleFilterChange} />
@@ -93,7 +111,7 @@ function CharacterCard() {
       ) : (
         <Popup
           trigger={
-            <div className="character-container">
+            <div className={`character-container ${filtering ? 'filtering' : ''}`}>
               {filteredCharacters.slice(0, visible).map((character) => (
                 <div
                   className="character-card"
@@ -134,6 +152,10 @@ function CharacterCard() {
         {visible < 1000 && <button className="load-btn " onClick={loadMore}>Load More</button>}
       </div>
     </div>
+     )}
+     </div>
+     
   );
 }
 export default CharacterCard;
+
