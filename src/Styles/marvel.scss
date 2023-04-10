@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
 @import "variables";
 @import "defaults";
 
@@ -983,11 +984,6 @@ a {
   }
 }
 
-
-
-
-
-
 .error-page {
   background: linear-gradient(to bottom, red, black);
   background-position: right;
@@ -1049,7 +1045,7 @@ h1 {
 }
 
 .overlay-text-opacity {
-  background-color: #ffffff;
+  background-color: #ffffffa7;
   color: rgb(0, 0, 0);
   font-size: 16px;
   padding: 16px 32px;
@@ -1063,6 +1059,73 @@ h1 {
   height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
+}
+
+.slide-left {
+  animation: slide-left .3s;
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.slide-right {
+  animation: 10s slide-right;
+}
+
+@keyframes slide-right {
+  from {
+    margin-left: -100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.fade-in-text {
+  font-family: Arial;
+  font-size: 16px;
+  animation: fadeIn .5s;
+  -webkit-animation: fadeIn .5s;
+  -moz-animation: fadeIn .5s;
+  -o-animation: fadeIn .5s;
+  -ms-animation: fadeIn .5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .comic-filter-container {
@@ -1141,14 +1204,13 @@ h1 {
   margin: auto;
   overflow: hidden;
   -webkit-backdrop-filter: blur(8px);  /* Safari 9+ */
-backdrop-filter: blur(8px); /* Chrome and Opera */
-box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
-background-color: rgb(228 228 228 / 15%); 
-animation: fade-up 0.3s ease-out;
-animation-fill-mode: forwards;
-opacity: 0;
-transform: translateY(50%);
-
+  backdrop-filter: blur(8px); /* Chrome and Opera */
+  box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
+  background-color: rgb(228 228 228 / 15%); 
+  animation: fade-up 0.3s ease-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: translateY(50%);
 }
 
 .pop_up_header{
