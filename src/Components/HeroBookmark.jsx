@@ -32,7 +32,7 @@ function HeroBookmark() {
   return (
     <div className="bookmark-container">
       {bookmarkArr.map((hero) => (
-        <>
+        <React.Fragment key={hero.uuid}>
           <img
             src={hero.heroImage}
             alt={hero.id}
@@ -45,7 +45,7 @@ function HeroBookmark() {
               onClick={() => handleBookmarkDelete(hero)}
             />
           </div>
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
