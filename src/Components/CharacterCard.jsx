@@ -5,7 +5,6 @@ import Popup from "reactjs-popup";
 import HeroDetails from "./HeroDetails";
 import video from "../marvel.mp4";
 
-
 function CharacterCard() {
   //to store the characters
   const [characters, setCharacters] = useState([]);
