@@ -4,6 +4,7 @@ import FilterCharacter from "../FilterCharacter";
 import Popup from "reactjs-popup";
 import HeroDetails from "./HeroDetails";
 import { useNavigate } from "react-router-dom";
+import HeroBookmark from "../Components/HeroBookmark";
 
 function CharacterCard() {
   //to store the characters
@@ -31,7 +32,7 @@ function CharacterCard() {
 
       while (offset < 2000) {
         const response = await fetch(
-          `https://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f`
+          `https://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=100&ts=1&apikey=ecb5b76db70043b36c65f8dc830aeab1&hash=65d325a029afb4ac68f2a2d5ce99ce21`
         );
         const data = await response.json();
         allCharacters = [...allCharacters, ...data.data.results];
@@ -85,6 +86,7 @@ function CharacterCard() {
   return (
     <div>
       <SearchCharacter onSearchTermChange={handleSearchTermChange} />
+      <HeroBookmark />
       <div>
         <FilterCharacter onFilterChange={handleFilterChange} />
       </div>
@@ -111,7 +113,10 @@ function CharacterCard() {
                 </div>
               ))}
             </div>
-        } modal nested>
+          }
+          modal
+          nested
+        >
           {(close) => (
             <div className="modal">
               <button className="close" onClick={close}>
@@ -125,13 +130,15 @@ function CharacterCard() {
               <div className="actions"></div>
             </div>
           )}
-          
-          </Popup>  
+        </Popup>
       )}
-              
 
       <div className="load-more">
-        {visible < 1000 && <button className="load-btn " onClick={loadMore}>Load More</button>}
+        {visible < 1000 && (
+          <button className="load-btn " onClick={loadMore}>
+            Load More
+          </button>
+        )}
       </div>
     </div>
   );

@@ -91,6 +91,30 @@ nav {
     }
   }
 }
+.bookmark-hero-image {
+  display: flex;
+  max-height: 116px;
+  max-width: 350px;
+}
+// .hero-bookmark-btn {
+//   // padding: 0;
+//   // border: 1;
+//   // background-color: #fff;
+//   // color: #333;
+//   // cursor: pointer;
+//   // outline: 1;
+//   // font-size: 10px;
+
+//   // background-color: #333333;
+// }
+
+.bookmark-container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px;
+  flex-wrap: wrap;
+  // background-color: #a50000;
+}
 .overlay-bookmark {
   position: absolute;
   top: 0;
@@ -104,7 +128,33 @@ nav {
   background-color: white;
 }
 
-.icon {
+.overlay-bookmarkDeleteBtn {
+  // position: absolute;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  // height: 30%;
+  // width: 100%;
+  opacity: 1;
+  transition: 0.3s ease;
+  //background-color: white;
+}
+
+.icon-deletebtn {
+  color: black;
+  font-size: 20px;
+  top: 50%;
+  right: 5%;
+  transform: translate(-100%, -10%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  &:hover {
+    color: red;
+  }
+}
+
+.icon-bookmark {
   color: #eee;
   font-size: 40px;
   position: absolute;
@@ -118,6 +168,7 @@ nav {
     color: red;
   }
 }
+
 .img {
   &-logo {
     width: 300px;
@@ -495,12 +546,12 @@ a {
 }
 
 .bg {
-    background-image: url('../Images/background-red-blue.jpg');
-    height: 100%;
-    padding: 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("../Images/background-red-blue.jpg");
+  height: 100%;
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .Box {
@@ -716,7 +767,6 @@ a {
       width: 100%;
       margin-bottom: 10px;
     }
-
   }
 
   input[type="text"] {
@@ -763,7 +813,6 @@ a {
   @media screen and (max-width: 480px) {
     width: 100%;
   }
-  
 
   .character-card-pic {
     border-radius: 10px;
@@ -781,7 +830,7 @@ a {
 .character-card:hover {
   transform: rotate(2deg) translateX(5px);
   animation: shake 0.5s infinite;
-  box-shadow: 0px 0px 10px 5px rgba(165,0,0,0.75);
+  box-shadow: 0px 0px 10px 5px rgba(165, 0, 0, 0.75);
 }
 
 @keyframes shake {
@@ -824,10 +873,9 @@ a {
   font-size: 15px;
 }
 
-.load-more{
+.load-more {
   display: flex;
   justify-content: center;
-
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -853,7 +901,7 @@ a {
     width: 300px;
   }
 
-@media (max-width: 450px) {
+  @media (max-width: 450px) {
     .slider-controller .swiper-button-prev {
       left: 20% !important;
       transform: translateX(-20%) !important;
@@ -862,12 +910,12 @@ a {
 }
 
 .error-page {
-    background: linear-gradient(to bottom, red, black);
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
+  background: linear-gradient(to bottom, red, black);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
 
   &-img {
     height: 100vh;
@@ -880,12 +928,11 @@ a {
   }
 }
 
-
 h1 {
   margin: 10px;
   color: gray;
   font-size: 40px;
-  position:relative;
+  position: relative;
   align-items: center;
   align-content: center;
   display: flex;
