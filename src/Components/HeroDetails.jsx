@@ -5,7 +5,7 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { Rating } from "@mui/material";
 import { db } from "../Firebase";
 import { uid } from "uid";
-import { set, ref, onValue } from "@firebase/database";
+import { set, ref } from "@firebase/database";
 
 const HeroDetails = (props) => {
   const [heroItem, setHeroItem] = useState();
