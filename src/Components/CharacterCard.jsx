@@ -192,13 +192,10 @@ function CharacterCard() {
   const [loading, setLoading] = useState(true);
   const [filtering, setFiltering] = useState(false);
 
- 
-
   const loadMore = () => {
     setVisible(visible + 20);
   };
 
-  
   useEffect(() => {
     const fetchData = async () => {
       let allCharacters = [];
@@ -330,8 +327,6 @@ function CharacterCard() {
               <div className="actions"></div>
             </div>
           )}
-        </Popup>
-      )}
 
       <div className="load-more">
         {visible < 100 && (
@@ -340,10 +335,8 @@ function CharacterCard() {
           </button>
         )}
       </div>
+
     </div>
-     )}
-     </div>
-     
   );
 }
 export default CharacterCard;
