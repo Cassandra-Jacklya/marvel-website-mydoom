@@ -10,20 +10,28 @@ function HeroBookmark() {
 
   //read data from firebase
   useEffect(() => {
-    onValue(ref(db), (snapshot) => {
-      setbookmarkArr([]);
-      const data = snapshot.val();
-      if (data !== null) {
-        Object.values(data).map((hero) => {
-          setbookmarkArr((oldArray) => [...oldArray, hero]);
-        });
-      }
-    });
+    getFavourites();
   }, []);
 
+  const getFavourites = () => {
+    const t = new Promise((resolve) => {
+      onValue(ref(db), (snapshot) => {
+        setbookmarkArr([]);
+        const data = snapshot.val();
+        if (data !== null) {
+          Object.values(data).map((hero) => {
+            setbookmarkArr((oldArray) => [...oldArray, hero]);
+            return resolve(bookmarkArr);
+          });
+        }
+      });
+    });
+    return t;
+  };
+
   //deletes the data in the db when the x is clicked on the image
-  const handleBookmarkDelete = (hero) => {
-    remove(ref(db, `/${hero.uuid}`));
+  const handleBookmarkDelete = async (hero) => {
+    remove(ref(db, `/${hero.heroID}`));
   };
 
   //logging the array of bookmarked heroes
