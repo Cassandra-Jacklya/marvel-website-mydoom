@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 const SearchComics=({searchComics, setSearchComics})=>{
 
 
@@ -14,7 +17,10 @@ return(
    placeholder="Search Comic here"
    onChange={handleChange}
    value={searchComics} 
+   
    />
+     
+     <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
 </div>
 )
 
