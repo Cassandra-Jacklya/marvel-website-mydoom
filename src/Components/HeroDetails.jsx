@@ -13,7 +13,11 @@ const HeroDetails = (props) => {
   const [bookmarkedHero, setBookmarkedHero] = useState();
 
   const [url, setUrl] = useState(
+<<<<<<< HEAD
+    `http://gateway.marvel.com/v1/public/characters/${props.characterID}?ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00`
+=======
     `http://gateway.marvel.com/v1/public/characters/${props.characterID}?ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f`
+>>>>>>> c81f530351f7523faf11cbca281999cf9a166d0d
   );
 
   useEffect(() => {
