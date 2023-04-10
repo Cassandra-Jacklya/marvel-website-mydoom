@@ -11,8 +11,6 @@ const HeroDetails = (props) => {
   const [heroItem, setHeroItem] = useState();
   const [bookmarkSelect, setBookmarkSelect] = useState(false);
   const [bookmarkedHero, setBookmarkedHero] = useState();
-  //const [bookmarkButtonStatus, setBookmarkButtonStatus] = useState([]);
-  //const [activeBookmarks, setActiveBookmark] = useState([{}]);
 
   const [url, setUrl] = useState(
     `http://gateway.marvel.com/v1/public/characters/${props.characterID}?ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f`
@@ -36,14 +34,6 @@ const HeroDetails = (props) => {
     fetch();
   }, [url]);
 
-  // useEffect(() => {
-  //   const fetch = async () => {
-  //     const response = await axios.get(url);
-  //     setBookmarkList(response.data.data.results);
-  //   };
-  //   fetch();
-  // }, [url]);
-
   //function to handle the bookmark icon when it is clicked
   const bookmarkHandler = () => {
     setBookmarkSelect(!bookmarkSelect);
@@ -59,40 +49,18 @@ const HeroDetails = (props) => {
     bookmarkedHero.map((item) => {
       //console.log("here", item);
       const bookmarkHeroID = item.id;
-      //console.log(item.id);
 
       const bookmarkHeroImg = `${item.thumbnail.path}.${item.thumbnail.extension}`;
       const bookmarkHeroName = item.name;
 
-      //activeBookmarks.push("test");
-
-      //console.log(activeBookmarks);
-      /** set(ref()) are firebase functions which will set the object{heroID: bookmarkHeroID, bookmarkStatus: !bookmarkSelect, uuid,heroImage: bookmarkHeroImg} into the db*/
       set(ref(db, `/${bookmarkHeroID}`), {
         heroID: bookmarkHeroID,
         heroName: bookmarkHeroName,
         bookmarkStatus: !bookmarkSelect,
         uuid,
         heroImage: bookmarkHeroImg,
-
-        // bookmarkArrCopy.map((duplicateHero) => {
-        //   const dupID = duplicateHero.heroID;
-        //   console.log(bookmarkHeroID !== dupID);
-        //   // if (bookmarkHeroID !== dupID) {
-        //     console.log("hello");
-        //     set(ref(db, `/${uuid}`), {
-        //       heroID: bookmarkHeroID,
-        //       bookmarkStatus: !bookmarkSelect,
-        //       uuid,
-        //       heroImage: bookmarkHeroImg,
-        //     // });
-        //   } else {
-        //     alert("Hero added");
-        //   }
       });
     });
-
-    //console.log(bookmarkedHero);
   };
 
   return (

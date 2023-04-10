@@ -94,9 +94,9 @@ function Avengers() {
           modules={[EffectCoverflow, Pagination, Navigation]}
           className="swiper_container"
         >
-          {avengers.map((a, key) => 
+          {avengers.map((a) => 
             <div>
-              <SwiperSlide key={key}>
+              <SwiperSlide key={a.path.uuid}>
                 <img src={a.path} alt="slide_image" className='avengers-overlay-text' onClick={() => handleClick(a)}/>
                 <div className="middle">
                   <div className="overlay-text-opacity">

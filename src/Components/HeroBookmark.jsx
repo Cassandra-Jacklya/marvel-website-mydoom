@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../Firebase";
-import { set, ref, onValue, remove } from "@firebase/database";
+import { ref, onValue, remove } from "@firebase/database";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
