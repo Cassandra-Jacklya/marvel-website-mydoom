@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import ComicsPage from "./Pages/ComicsPage";
 import AboutPage from "./Pages/AboutPage";
 import CharactersPage from "./Pages/CharactersPage";
-import Avengers from "./Components/Avengers";
+import Avengers from "./Components/Homepage/Avengers";
 import Footer from "./Components/Footer";
 import ErrorPage from "./Pages/ErrorPage";
 
