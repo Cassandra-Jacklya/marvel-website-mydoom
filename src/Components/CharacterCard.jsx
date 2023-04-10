@@ -34,7 +34,7 @@ function CharacterCard() {
       let allCharacters = [];
       let offset = 0;
 
-      while (offset < 1000) {
+      while (offset < 100) {
         const response = await fetch(
           `https://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f`
         );
@@ -149,7 +149,7 @@ function CharacterCard() {
               
 
       <div className="load-more">
-        {visible < 1000 && <button className="load-btn " onClick={loadMore}>Load More</button>}
+        {visible < 100 && <button className="load-btn " onClick={loadMore}>Load More</button>}
       </div>
     </div>
      )}
