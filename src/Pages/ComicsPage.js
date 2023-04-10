@@ -1,10 +1,11 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Card from '../Components/Card';
-
 import SearchComics from '../Components/SearchComics.js';
 import cancel from '../Images/cancel.svg';
 import FilterComics from '../FilterComics';
+import firebase, { firestore } from '@/lib/firebase';
+import WriteComponent from '../Components/WriteComponent';
 
 const ComicsPage = ( {children} ) => {
     const [comic,setComic]=useState([])
@@ -15,6 +16,7 @@ const ComicsPage = ( {children} ) => {
     const[popupcontent,setPopUpContent]=useState([]);
     const [popuptogle,setPopUpToggle]=useState(false);
     const [styling,setStyling]=useState(null)
+    const [comments, setComments] = useState([])
 
 //setter for on and off the modal
      const changecontent=(item)=>{
@@ -82,6 +84,43 @@ const ComicsPage = ( {children} ) => {
         break;
     }
 
+    }
+
+     const getComments = (slug, callBackFunction) => {
+      firestore
+        .collection('comments')
+        .get()
+        .then((snapshot) => {
+          const posts = snapshot.docs
+            .map((doc) => doc.data())
+            .filter((doc) => doc.slug === slug)
+            .map((doc) => {
+              return { id: doc.id, ...doc }
+            })
+          callBackFunction(posts)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+
+     const writeComment = (name, slug, content, email, callBackFunction) => {
+      let temp = {
+        name,
+        slug,
+        content,
+        time: firebase.firestore.Timestamp.fromDate(new Date()),
+      }
+      if (email.length > 0) temp['email'] = email
+      firestore
+        .collection('comments')
+        .add(temp)
+        .then(() => {
+          callBackFunction()
+        })
+        .catch((err) => {
+          console.error(err)
+        })
     }
 
     const handleSearchTermChange = (searchTerm) => {
@@ -157,7 +196,8 @@ const ComicsPage = ( {children} ) => {
                     <p>Title:{item.title}</p>
                    <p>Issue number:{item.issueNumber}</p>
                    <p>Page count:{item.pageCount}</p>
-                   <p></p>
+                   <WriteComponent setComments={setComments} slug={post.slug} />
+
                    {/* <p>Prices:{item.prices[0]}</p> */}
                    </div>
                     </div>
