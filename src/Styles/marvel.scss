@@ -4,6 +4,14 @@
 @import "variables";
 @import "defaults";
 
+:root {
+  --primary: #6a59ff;
+  --white: #ffffff;
+  --bg: #f5f5f5;
+  --card-height: auto;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
 * {
   box-sizing: border-box;
   font-family: 'Marvel', sans-serif;
@@ -621,14 +629,6 @@ a {
 
 .swiper-pagination .swiper-pagination-bullet-active {
   background: var(--primary);
-}
-
-:root {
-  --primary: #6a59ff;
-  --white: #ffffff;
-  --bg: #f5f5f5;
-  --card-height: auto;
-  --card-width: calc(var(--card-height) / 1.5);
 }
 
 .FooterLink {

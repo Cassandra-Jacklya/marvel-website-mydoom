@@ -10,6 +10,7 @@ import CharactersPage from "./Pages/CharactersPage";
 import Avengers from "./Components/Homepage/Avengers";
 import Footer from "./Components/Footer";
 import ErrorPage from "./Pages/ErrorPage";
+import RoutingFooter from "./Components/RoutingFooter";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
             <Route path="about-us" element={
             <div>
               <AboutPage />
-              <Footer />
+              <Footer/>
             </div>}></Route>
             <Route
               path="characters"

@@ -18,7 +18,7 @@ function Avengers() {
     const ironman = {
         name: "Iron Man",
         bio:  "Genius. Billionaire. Philanthropist. Tony Stark's confidence is only matched by his high-flying abilities as the hero called Iron Man.",
-        story: "Tony Stark is the wealthy son of industrialist and weapons manufacturer Howard Stark and his wife, Maria. Tony grew up a genius with a brilliant mind for technology and inventions and, naturally, followed in his father’s footsteps, inheriting Stark Industries upon his parents’ untimely death. Tony designed many weapons of war for Stark Industries, far beyond what any other company was creating, while living the lifestyle of a bon vivant.",
+        story: "Tony Stark is the wealthy son of industrialist and weapons manufacturer Howard Stark and his wife, Maria. Tony grew up a genius with a brilliant mind for technology and inventions and, naturally, followed in his father’s footsteps, inheriting Stark Industries upon his parents’ untimely death.",
         quote: "“YOU CAN TAKE AWAY MY HOUSE, ALL MY TRICKS AND TOYS. ONE THING YOU CAN'T TAKE AWAY...I AM IRON MAN.”",
         path: ironPath,
         visible: false,
@@ -27,7 +27,7 @@ function Avengers() {
     const blackWidow = {
         name: "Black Widow",
         bio: "Despite super spy Natasha Romanoff’s checkered past, she’s become one of S.H.I.E.L.D.’s most deadly assassins and a frequent member of the Avengers.",
-        story: "Natasha Romanoff was trained from a young age to cultivate a very specific set of skills in a Russian facility called the Red Room. There she honed the skills that would turn her into a human warrior who continues to stand shoulder-to-shoulder with super soldiers, Asgardians and people in armored suits. However, she eventually eschewed her KGB masters, switched allegiances and began working for the good guys.",
+        story: "Natasha Romanoff was trained from a young age to cultivate a very specific set of skills in a Russian facility called the Red Room. There she honed the skills that would turn her into a human warrior who continues to stand shoulder-to-shoulder with super soldiers, Asgardians and people in armored suits.",
         quote: "“AT SOME POINT WE ALL HAVE TO CHOOSE: BETWEEN WHO THE WORLD WANTS YOU TO BE, AND WHO YOU ARE.”",
         path: bWPath,
         visible: false,
@@ -37,7 +37,7 @@ function Avengers() {
     const thor = {
         name: "Thor",
         bio: "The son of Odin uses his mighty abilities as the God of Thunder to protect his home Asgard and planet Earth alike.",
-        story: "Thor is the God of Thunder, a member of the race known as the Asgardians, a group of humanoid beings from the pocket dimension of Asgard, the Realm Eternal. Thor is the son of Odin, the All-Father and King of Asgard. He was worshiped by the humans known as Vikings and became part of Norse mythology. Armed with his enchanted Uru hammer Mjolnir, which helps him to channel his godly energies, he became the mightiest warrior in the Ten Realms.",
+        story: "Thor is the God of Thunder, a member of the race known as the Asgardians, a group of humanoid beings from the pocket dimension of Asgard, the Realm Eternal. Thor is the son of Odin, the All-Father and King of Asgard. Armed with his enchanted Uru hammer Mjolnir, which helps him to channel his godly energies, he became the mightiest warrior in the Ten Realms.",
         quote: "“I CHOOSE TO RUN TOWARDS MY PROBLEMS AND NOT AWAY FROM THEM. BECAUSE THAT'S WHAT HEROES DO.”",
         path: thorPath,
         visible: false,
@@ -57,7 +57,7 @@ function Avengers() {
     const captainAmerica = {
         name: "Captain America",
         bio: "Recipient of the Super Soldier serum, World War II hero Steve Rogers fights for American ideals as one of the world’s mightiest heroes and the leader of the Avengers.",
-        story: "As Captain America, Steve Rogers carries a nearly indestructible shield fashioned from the rare Wakandan metal known as vibranium. Designed and crafted by genius inventor Howard Stark during World War II, the shield is a perfectly balanced instrument capable of withstanding intense stress and damage, yet also able to be thrown as an offensive weapon that rebounds back to its owner. Rogers maintains the shield as an almost constant companion after it was recovered from the wreckage of the Red Skull’s airplane, as it has become a symbol of strength to all those who recognize Captain America as the country’s defender.",
+        story: "As Captain America, Steve Rogers carries a nearly indestructible shield fashioned from the rare Wakandan metal known as vibranium. Rogers maintains the shield as an almost constant companion after it was recovered from the wreckage of the Red Skull’s airplane, as it has become a symbol of strength to all those who recognize Captain America as the country’s defender.",
         quote: "“I CAN DO THIS ALL DAY.”",
         path: captainPath,
         visible: false,
