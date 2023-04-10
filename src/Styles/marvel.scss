@@ -226,6 +226,39 @@ p {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+  box-sizing: border-box;
+
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 480px) {
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+
+  }
+    
+  /* Media Query for low resolution  Tablets, Ipads */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+
+  }
+    
+  /* Media Query for Tablets Ipads portrait mode */
+  @media (min-width: 768px) and (max-width: 1024px){
+    .grid-container { grid-template-columns: repeat(3, 1fr); }
+
+  }
+    
+  /* Media Query for Laptops and Desktops */
+  @media (min-width: 1025px) and (max-width: 1280px){
+    .grid-container { grid-template-columns: repeat(4, 1fr); }
+
+  }
+    
+  /* Media Query for Large screens */
+  @media (min-width: 1281px) {
+    .grid-container { grid-template-columns: repeat(5, 1fr); }
+
+  }
+
 }
 
 .grid-item {
