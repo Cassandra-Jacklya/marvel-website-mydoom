@@ -16,7 +16,6 @@ const SearchCharacter = (search) => {
       <input
         type="text"
         id="search"
-        test
         placeholder="Search characters"
         value={searchTerm}
         onChange={handleInputChange}
