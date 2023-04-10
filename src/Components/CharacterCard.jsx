@@ -3,6 +3,8 @@ import SearchCharacter from "../SearchCharacter";
 import FilterCharacter from "../FilterCharacter";
 import Popup from "reactjs-popup";
 import HeroDetails from "./HeroDetails";
+import video from "../marvel.mp4";
+
 
 function CharacterCard() {
   //to store the characters
@@ -13,23 +15,47 @@ function CharacterCard() {
   const [characterNotFound, setCharacterNotFound] = useState(false);
   //additional state for filtering
   const [, setFilterType] = useState("All");
+  //setting visibility to limit character showing
+  const [visible, setVisible] = useState(50);
+  //to store selected character ID
+  const [charID, setCharID] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [filtering, setFiltering] = useState(false);
 
+ 
+
+  const loadMore = () => {
+    setVisible(visible + 20);
+  };
+
+  
   useEffect(() => {
-    fetch(
-      "https://gateway.marvel.com/v1/public/characters?offset=0&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setCharacters(data.data.results);
-        setFilteredCharacters(data.data.results);
-      })
-      .catch((error) => console.error(error));
+    const fetchData = async () => {
+      let allCharacters = [];
+      let offset = 0;
+
+      while (offset < 1000) {
+        const response = await fetch(
+          `https://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=100&ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f`
+        );
+        const data = await response.json();
+        allCharacters = [...allCharacters, ...data.data.results];
+        offset += 100;
+      }
+
+      setCharacters(allCharacters);
+      setFilteredCharacters(allCharacters);
+      setLoading(false);
+    };
+
+    fetchData().catch((error) => console.error(error));
   }, []);
 
   //function to handle filtering
   const handleFilterChange = (filter) => {
     //set filterType state based on button click
     setFilterType(filter);
+    setFiltering(true);
 
     switch (filter) {
       case "All":
@@ -60,9 +86,22 @@ function CharacterCard() {
     setFilteredCharacters(filtered);
     setCharacterNotFound(filtered.length === 0);
   };
-
+  // const handleCharID = () => {
+  //   setCharID;
+  // };
   return (
     <div>
+      {loading ? (
+      <div className="marvel-video">        
+      <video autoPlay loop muted>
+      <source src={video} type="video/mp4" />
+      </video> 
+      <div className="marvel-text">
+    Sorry Marvelites, Strange is having some technical issues with his portal
+  </div>
+      </div>   ) : (
+      <div>        
+   
       <SearchCharacter onSearchTermChange={handleSearchTermChange} />
       <div>
         <FilterCharacter onFilterChange={handleFilterChange} />
@@ -70,13 +109,17 @@ function CharacterCard() {
       {characterNotFound ? (
         <div className="character-not-found">Character not found</div>
       ) : (
-
         <Popup
           trigger={
-            <div className="character-container">
-              {filteredCharacters.map((character) => (
-                <div className="character-card" key={character.id}>
-                  <h2>{character.name}</h2>
+            <div className={`character-container ${filtering ? 'filtering' : ''}`}>
+              {filteredCharacters.slice(0, visible).map((character) => (
+                <div
+                  className="character-card"
+                  key={character.id}
+                  // created an onClick which will set the character id using setCharID(character.id)
+                  onClick={() => setCharID(character.id)}
+                >
+                  <h2 className="character-name">{character.name}</h2>
                   {/* potrait_uncanny is the size of pic to be shown */}
                   <img
                     className="character-card-pic"
@@ -86,10 +129,7 @@ function CharacterCard() {
                 </div>
               ))}
             </div>
-          }
-          modal
-          nested
-        >
+        } modal nested>
           {(close) => (
             <div className="modal">
               <button className="close" onClick={close}>
@@ -97,31 +137,25 @@ function CharacterCard() {
               </button>
               {/* <div className="header"> Modal Title </div> */}
               <div className="content">
-                <HeroDetails />
+                {/* pass the charID which has the character.id using prop characterID */}
+                <HeroDetails characterID={charID} />
               </div>
               <div className="actions"></div>
             </div>
           )}
-        </Popup>
-        // <div className="character-container">
-        //   {filteredCharacters.map((character) => (
-        //     <div className="character-card" key={character.id}>
-        //       <img
-        //         className="character-card-pic"
-        //         src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
-        //         alt={character.name}
-        //       />
-              
-        //       <h2 className="character-card-name">{character.name}</h2>
-        //     </div>
-        //   ))}
-        // </div>
+          
+          </Popup>  
       )}
+              
 
-      <button className="load-btn">Load More</button>
+      <div className="load-more">
+        {visible < 1000 && <button className="load-btn " onClick={loadMore}>Load More</button>}
+      </div>
     </div>
+     )}
+     </div>
+     
   );
 }
-
 export default CharacterCard;
 

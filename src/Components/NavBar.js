@@ -8,9 +8,9 @@ function NavBar() {
             <img className="img-logo" src={marvelLogo} alt={"Marvel logo"}/>
             <ul className="navigation">
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/characters">Characters</Link> </li>
-                <li><Link to="/comics">Comics</Link></li>
-                <li><Link to="/about-us">About Us</Link></li>
+                <li><Link to="characters">Characters</Link> </li>
+                <li><Link to="comics">Comics</Link></li>
+                <li><Link to="about-us">About Us</Link></li>
             </ul>
         </nav>
     )

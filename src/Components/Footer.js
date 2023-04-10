@@ -2,7 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
+    <>
     <div className="Box">
+      <div className="Box-div-el">
+          <p className="Box-p-el">
+            © MyD00M Marvel Entertainment
+          </p>
+      </div>
       <div className="FootContainer">
         <div className="Row">
           <div className="Column">
@@ -21,31 +27,24 @@ const Footer = () => {
             <div className="FootHeading">Social Media</div>
             <a className="FooterLink" href="#">
               <i className="fab fa-facebook-f">
-                <span style={{ marginLeft: "10px" }}>Facebook</span>
+                <span className="social-media-icons">Facebook</span>
               </i>
             </a>
             <a className="FooterLink" href="#">
               <i className="fab fa-instagram">
-                <span style={{ marginLeft: "10px" }}>Instagram</span>
+                <span className="social-media-icons">Instagram</span>
               </i>
             </a>
             <a className="FooterLink" href="#">
               <i className="fab fa-twitter">
-                <span style={{ marginLeft: "10px" }}>Twitter</span>
+                <span className="social-media-icons">Twitter</span>
               </i>
             </a>
-            {/* <a className="FooterLink" href="#">
-              <i className="fab fa-youtube">
-                <span style={{ marginLeft: "10px" }}>Youtube</span>
-              </i>
-            </a> */}
           </div>
         </div>
       </div>
-      <p style={{ color: "white", textAlign: "center",  fontFamily: "cursive", fontSize: "x-small", marginTop: "30px"}}>
-        MyD00M Marvel Entertainment
-      </p>
     </div>
+    </>
   );
 };
 export default Footer;

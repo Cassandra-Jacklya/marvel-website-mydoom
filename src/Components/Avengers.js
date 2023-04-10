@@ -5,7 +5,6 @@ import hulk from '../Images/Transparent/hulk.png';
 import ironman from '../Images/Transparent/ironman.png';
 import thor from '../Images/Transparent/thor2.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -39,11 +38,12 @@ function Avengers() {
           modules={[EffectCoverflow, Pagination, Navigation]}
           className="swiper_container"
         >
-          {avengers.map((a) => 
-            <SwiperSlide>
-              <img src={a} alt="slide_image" 
-              style={{width: '800px', height: '100%',
-              objectFit: "contain"}} />
+          {avengers.map((a, key) => 
+            <SwiperSlide key={key}>
+              <img src={a} alt="slide_image" className='avengers-overlay-text' />
+              <div className="middle">
+                <div className="overlay-text-opacity">Swipe? Click?</div>
+              </div>
             </SwiperSlide>
           )}
           <div className="slider-controller">
