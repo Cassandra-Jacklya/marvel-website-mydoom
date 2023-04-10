@@ -9,36 +9,36 @@ const AboutPage = () => {
     return (
         <div className='About'>
             <div id="avengers-about">
-                <img src={avengers} alt='avengers logo title'/>
+                <img id="a-pic" src={avengers} alt='avengers logo title'/>
             </div>
             <div className='cards-info'>
-                <div class="card">
-                    <div class="wrapper">
-                    <img src={cass} class="cover-image" alt='cassandra' />
+                <div className="card">
+                    <div className="wrapper">
+                    <img src={cass} className="cover-image" alt='cassandra' />
                     <h4>"Code. Test. Debug-Bug-Bug-Bug. Stress. Eat. Exercise. Repeat."</h4>
                     </div>
-                    <img src={cass} class="character" alt='cassandra'/>
+                    <img src={cass} className="character" alt='cassandra'/>
                 </div>
-                <div class="card">
-                    <div class="wrapper">
-                    <img src={deilan} class="cover-image" alt='deilan'/>
+                <div className="card">
+                    <div className="wrapper">
+                    <img src={deilan} className="cover-image" alt='deilan'/>
                     <h4>"CSS is my kryptonite"</h4>
                     </div>
-                    <img src={deilan} class="character" alt='deilan'/>
+                    <img src={deilan} className="character" alt='deilan'/>
                 </div>
-                <div class="card">
-                    <div class="wrapper">
-                    <img src={pavi} class="cover-image" alt='pavithra' />
+                <div className="card">
+                    <div className="wrapper">
+                    <img src={pavi} className="cover-image" alt='pavithra' />
                     <h4>"Sometimes, I wish to be the Thor of programming world"</h4>
                     </div>
-                    <img src={pavi} class="character" alt='pavithra'/>
+                    <img src={pavi} className="character" alt='pavithra'/>
                 </div>
-                <div class="card">
-                    <div class="wrapper">
-                    <img src={akmal} class="cover-image" alt='akmal'/>
+                <div className="card">
+                    <div className="wrapper">
+                    <img src={akmal} className="cover-image" alt='akmal'/>
                     <h4>"Even Ironman needed ChatGpt to save the world"</h4>
                     </div>
-                    <img src={akmal} class="character" alt='akmal'/>
+                    <img src={akmal} className="character" alt='akmal'/>
                 </div>
             </div>
             <div className='about-info'>
