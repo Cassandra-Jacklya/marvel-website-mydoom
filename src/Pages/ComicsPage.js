@@ -4,8 +4,8 @@ import Card from '../Components/Card';
 
 import SearchComics from '../Components/SearchComics.js';
 import cancel from '../Images/cancel.svg';
-
 import FilterComics from '../FilterComics';
+
 const ComicsPage = ( {children} ) => {
     const [comic,setComic]=useState([])
     const[filterComics,setFilterComic]=useState('');
