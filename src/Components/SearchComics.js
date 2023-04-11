@@ -19,8 +19,6 @@ return(
    value={searchComics} 
    
    />
-     
-     <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
 </div>
 )
 

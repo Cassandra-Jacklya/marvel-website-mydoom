@@ -89,17 +89,6 @@ li {
   max-height: 116px;
   max-width: 350px;
 }
-// .hero-bookmark-btn {
-//   // padding: 0;
-//   // border: 1;
-//   // background-color: #fff;
-//   // color: #333;
-//   // cursor: pointer;
-//   // outline: 1;
-//   // font-size: 10px;
-
-//   // background-color: #333333;
-// }
 
 .bookmark-container {
   display: flex;
@@ -172,13 +161,11 @@ li {
 }
 
 .card {
-  background-color: transparent;
+  background-color: #b41f23;
   color: white;
+  position: relative;
   margin-top: 3rem;
-  margin-left: 0;
-  margin-right: 0;
   padding: 1.5px;
-  display: flex;
 }
 
 p {
@@ -193,6 +180,35 @@ p {
 }
 .card:hover img {
   transform: scale(1.1);
+}
+
+.card .title {
+  text-align: center;
+  padding: 1rem;
+  font-size: 17px;
+}
+
+.card::after,
+.card::before {
+  content: "";
+  position: absolute;
+  background: #b41f23;
+  z-index: -1;
+}
+
+.card::before {
+  bottom: -2em;
+  left: 0;
+  width: 75%;
+  height: 3em;
+}
+.card::after {
+  bottom: -2em;
+  right: 0.9em;
+  width: 41%;
+  height: 5em;
+  transform: rotate(-38deg);
+  box-sizing: 1rem;
 }
 
 .box-content {
@@ -233,7 +249,7 @@ p {
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   box-sizing: border-box;
 
 
@@ -1354,7 +1370,7 @@ nav {
   }
 }
 
-.card {
+.card-info {
   width: var(--card-width);
   height: var(--card-height);
   position: relative;

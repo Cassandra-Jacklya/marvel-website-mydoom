@@ -5,7 +5,7 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { Rating } from "@mui/material";
 import { db } from "../Firebase";
 import { uid } from "uid";
-import { set, ref } from "@firebase/database";
+import { set, ref, onValue } from "@firebase/database";
 
 const HeroDetails = (props) => {
   const [heroItem, setHeroItem] = useState();
@@ -13,7 +13,7 @@ const HeroDetails = (props) => {
   const [bookmarkedHero, setBookmarkedHero] = useState();
 
   const [url, setUrl] = useState(
-    `http://gateway.marvel.com/v1/public/characters/${props.characterID}?ts=1&apikey=066201a806fa0b522452f78b3d9c61ec&hash=9234926490e1d5b8b9276d78f8c2f00f`
+    `http://gateway.marvel.com/v1/public/characters/${props.characterID}?ts=1&apikey=ecb5b76db70043b36c65f8dc830aeab1&hash=65d325a029afb4ac68f2a2d5ce99ce21`
   );
 
   useEffect(() => {
@@ -49,10 +49,12 @@ const HeroDetails = (props) => {
     bookmarkedHero.map((item) => {
       //console.log("here", item);
       const bookmarkHeroID = item.id;
+      //console.log(item.id);
 
       const bookmarkHeroImg = `${item.thumbnail.path}.${item.thumbnail.extension}`;
       const bookmarkHeroName = item.name;
 
+      /** set(ref()) are firebase functions which will set the object{heroID: bookmarkHeroID, bookmarkStatus: !bookmarkSelect, uuid,heroImage: bookmarkHeroImg} into the db*/
       set(ref(db, `/${bookmarkHeroID}`), {
         heroID: bookmarkHeroID,
         heroName: bookmarkHeroName,
