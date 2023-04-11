@@ -638,7 +638,6 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: green;
     transition: 200ms ease-in;
     padding-left: 8px;
   }
@@ -1111,7 +1110,6 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     width: 300px;
-    box-shadow: 20px 20px 20px 10px rgb(255, 230, 0);
 
     &:hover {
       background-color: grey;
@@ -1141,8 +1139,6 @@ h1 {
     border-radius: 16px;
     font-size: 16px;
     width: 500px;
-    box-shadow: 20px 20px 20px 10px rgb(88, 87, 87);
-    background-color: #ee9497;
   }
 }
 
