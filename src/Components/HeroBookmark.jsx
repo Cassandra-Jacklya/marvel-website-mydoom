@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../Firebase";
-import { ref, onValue, remove } from "@firebase/database";
+import { set, ref, onValue, remove } from "@firebase/database";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -40,7 +40,7 @@ function HeroBookmark() {
   return (
     <div className="bookmark-container">
       {bookmarkArr.map((hero) => (
-        <React.Fragment key={hero.uuid}>
+        <>
           <img
             src={hero.heroImage}
             alt={hero.id}
@@ -53,7 +53,7 @@ function HeroBookmark() {
               onClick={() => handleBookmarkDelete(hero)}
             />
           </div>
-        </React.Fragment>
+        </>
       ))}
     </div>
   );

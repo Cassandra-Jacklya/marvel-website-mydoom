@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { uid } from "uid";
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import BoxDetails from './BoxDetails';
 import hulkPath from "../../Images/Transparent/hulk.png";
@@ -71,6 +72,8 @@ function Avengers() {
       setShow(!show);
     }
 
+    const uuid = uid();
+
     return (
       <div className="container">
         <Swiper
@@ -96,7 +99,7 @@ function Avengers() {
         >
           {avengers.map((a) => 
             <div>
-              <SwiperSlide key={a.path.uuid}>
+              <SwiperSlide key={a.uuid}>
                 <img src={a.path} alt="slide_image" className='avengers-overlay-text' onClick={() => handleClick(a)}/>
                 <div className="middle">
                   <div className="overlay-text-opacity">
