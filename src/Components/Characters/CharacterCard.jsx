@@ -3,6 +3,9 @@ import SearchCharacter from "../../SearchCharacter";
 import FilterCharacter from "./FilterCharacter";
 import Popup from "reactjs-popup";
 import HeroDetails from "./HeroDetails";
+import HeroBookmark from "../../Components/HeroBookmark";
+import video from "../../marvel.mp4";
+import {AnimatePresence, motion} from "framer-motion";
 
 function CharacterCard() {
   //to store the characters
@@ -17,6 +20,8 @@ function CharacterCard() {
   const [visible, setVisible] = useState(50);
   //to store selected character ID
   const [charID, setCharID] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [filtering, setFiltering] = useState(false);
 
   const loadMore = () => {
     setVisible(visible + 20);
@@ -38,6 +43,7 @@ function CharacterCard() {
 
       setCharacters(allCharacters);
       setFilteredCharacters(allCharacters);
+      setLoading(false);
     };
 
     fetchData().catch((error) => console.error(error));
@@ -47,6 +53,7 @@ function CharacterCard() {
   const handleFilterChange = (filter) => {
     //set filterType state based on button click
     setFilterType(filter);
+    setFiltering(true);
 
     switch (filter) {
       case "All":
@@ -64,7 +71,7 @@ function CharacterCard() {
         );
         setFilteredCharacters(lessPopularCharacters);
         break;
-      default:
+         default:
         setFilteredCharacters(characters);
         break;
     }
@@ -82,34 +89,53 @@ function CharacterCard() {
   // };
   return (
     <div>
-      <SearchCharacter onSearchTermChange={handleSearchTermChange} />
-      <div>
-        <FilterCharacter onFilterChange={handleFilterChange} />
-      </div>
-      {characterNotFound ? (
-        <div className="character-not-found">Character not found</div>
-      ) : (
-        <Popup
-          trigger={
-            <div className="character-container">
-              {filteredCharacters.slice(0, visible).map((character) => (
-                <div
-                  className="character-card"
-                  key={character.id}
-                  // created an onClick which will set the character id using setCharID(character.id)
-                  onClick={() => setCharID(character.id)}
-                >
-                  <h2 className="character-name">{character.name}</h2>
-                  {/* potrait_uncanny is the size of pic to be shown */}
-                  <img
-                    className="character-card-pic"
-                    src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
-                    alt={character.name}
-                  />
-                </div>
+      {loading ? (
+      <div className="marvel-video">        
+        <video autoPlay loop muted>
+          <source src={video} type="video/mp4" />
+        </video> 
+        <div className="marvel-text">
+          Sorry Marvelites, Strange is having some technical issues with his portal
+        </div>
+      </div>   ) : (
+        
+      <div>        
+   
+        <SearchCharacter onSearchTermChange={handleSearchTermChange} />
+        <HeroBookmark />
+        <div>
+          <FilterCharacter onFilterChange={handleFilterChange} />
+        </div>
+        {characterNotFound ? (
+          <div className="character-not-found">Character not found</div>
+        ) : 
+        (<Popup
+            trigger={
+              <div className={`character-container ${filtering ? 'filtering' : ''}`}>
+                {filteredCharacters.slice(0, visible).map((character) => (
+                  <AnimatePresence>
+                    <motion.div 
+                      className="character-card"
+                      key={character.id}
+                      layout
+                    initial ={{opacity:0}}
+                    animate = {{opacity:1}}
+                    transition={{duration: 0.5}}
+                // created an onClick which will set the character id using setCharID(character.id)
+                    onClick={() => setCharID(character.id)}>
+                    <h2 className="character-name">{character.name}</h2>
+                    {/* potrait_uncanny is the size of pic to be shown */}
+                    <img
+                      className="character-card-pic"
+                      src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
+                      alt={character.name}
+                    />
+                    </motion.div>
+                  </AnimatePresence>
               ))}
-            </div>
-        } modal nested>
+              </div>
+            }
+          modal nested>
           {(close) => (
             <div className="modal">
               <button className="close" onClick={close}>
@@ -123,15 +149,19 @@ function CharacterCard() {
               <div className="actions"></div>
             </div>
           )}
-          
-          </Popup>  
-      )}
-              
+          </Popup>
+        )}
 
       <div className="load-more">
-        {visible < 100 && <button className="load-btn " onClick={loadMore}>Load More</button>}
+        {visible < 100 && 
+          <button className="load-btn " onClick={loadMore}>
+            Load More
+          </button>}
+          </div>
+          </div>
+        )}
       </div>
-    </div>
   );
+
 }
 export default CharacterCard;

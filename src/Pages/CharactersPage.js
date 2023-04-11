@@ -1,6 +1,6 @@
 import React from "react";
 import Popup from "reactjs-popup";
-import CharacterCard from "../Components/CharacterCard";
+import CharacterCard from "../Components/Characters/CharacterCard";
 import NavBar from "../Components/NavBar";
 import { AnimatePresence } from "framer-motion";
 
